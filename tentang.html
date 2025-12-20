@@ -4,6 +4,143 @@
     <meta charset="UTF-8">
     <title>SixFormatix | Tentang</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* === CSS KHUSUS HALAMAN INI === */
+
+        /* 1. Intro Header */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+        .intro-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-yellow);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .intro-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+
+        /* 2. Wrapper Logo Tengah */
+        .center-logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        /* Kartu Logo 3D Utama */
+        .tilt-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(0, 198, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 198, 255, 0.1);
+            backdrop-filter: blur(6px);
+            transform-style: preserve-3d;
+            text-align: center;
+            max-width: 350px;
+            margin-bottom: 40px;
+        }
+        .tilt-card img {
+            width: 100%;
+            max-width: 220px;
+            display: block;
+            margin: 0 auto 20px auto;
+            transform: translateZ(30px);
+            border-radius: 10px;
+        }
+
+        /* 3. Grid Filosofi (Teks Penjelas) */
+        .philosophy-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .philo-box {
+            background: rgba(0, 198, 255, 0.1);
+            border-left: 4px solid var(--neon-yellow);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            transition: 0.3s;
+        }
+        .philo-box:hover {
+            background: rgba(0, 198, 255, 0.2);
+            transform: translateX(5px);
+        }
+        .philo-header {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .philo-text {
+            font-size: 0.95rem;
+            color: #dcdcdc;
+            line-height: 1.6;
+        }
+
+        /* 4. Area Sample Foto Bawah (Galeri) */
+        .sample-area {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .sample-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        .sample-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .sample-card {
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            width: 300px;
+            transition: 0.3s;
+        }
+        .sample-card:hover {
+            transform: scale(1.03);
+            border-color: var(--neon-yellow);
+            box-shadow: 0 0 20px rgba(255, 238, 0, 0.2);
+        }
+        .sample-card img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+        .sample-caption {
+            text-align: center;
+            margin-top: 10px;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,29 +153,88 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="tentang.html">Tentang</a></li>
         <li><a href="anggota.html">Anggota</a></li>
+        <li><a href="jadwal.html">Jadwal</a></li>
         <li><a href="kontak.html">Kontak</a></li>
     </ul>
+    <div id="jam" class="neon-clock">--:--:--</div>
 </nav>
 
-<section class="tentang">
-    <h2>Tentang SixFormatics</h2>
-    <p>
-        Sixformatics adalah kelas Informatika yang jadi tempat ngumpulnya
-        generasi digital yang kreatif, aktif, dan penuh ide. Di sini,
-        teknologi bukan cuma soal teori, tapi juga soal eksplorasi,
-        kolaborasi, dan bikin solusi yang relevan di dunia nyata.
-    </p>
+<div class="glass-container">
 
-    <p>
-        Lewat coding, logika komputasi, dan kerja tim, Sixformatics membentuk
-        mahasiswa yang siap menghadapi tantangan era digital. Kami belajar,
-        berkembang, dan berkarya bareng—karena masa depan itu diciptakan,
-        bukan ditunggu.
-    </p>
-</section>
+    <div class="intro-section">
+        <h1 class="intro-title">Who We Are?</h1>
+        <p class="intro-desc">
+            <span style="color: var(--primary-blue); font-weight: bold;">SixFormatix</span>
+            bukan sekadar kelas, melainkan ekosistem digital di mana solidaritas dan kreativitas menyatu.
+        </p>
+    </div>
 
+    <div class="center-logo-area">
 
-<footer>© 2025 SixFormatix</footer>
+        <div class="tilt-card" data-tilt>
+            <img src="logo.jpg" alt="Logo SixFormatix">
+            <h3 style="font-family: 'Orbitron', sans-serif; color: white;">THE EMBLEM</h3>
+        </div>
+
+        <div class="philosophy-container">
+            <div class="philo-box">
+                <div class="philo-header">⚡ FILOSOFI ANGKA 6</div>
+                <p class="philo-text">
+                    Angka 6 yang bergaya futuristik melambangkan Prodi Informatika yang akan terus ikut andil
+                    dalam berkembangnya industri zaman. Bentuk ini merepresentasikan inovasi yang dinamis.
+                </p>
+            </div>
+
+            <div class="philo-box">
+                <div class="philo-header">💎 FILOSOFI WARNA BIRU</div>
+                <p class="philo-text">
+                    Warna biru melambangkan kepercayaan, stabilitas, profesionalisme, dan kecerdasan.
+                    Menjadi simbol ketenangan namun tajam dalam berpikir logika.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sample-area">
+        <h3 class="sample-title">VISUAL SAMPLES</h3>
+
+        <div class="sample-grid">
+            <div class="sample-card">
+                <img src="logo2sixformatic.jpg" alt="Sample 1">
+                <div class="sample-caption">Emblem Variation I</div>
+            </div>
+
+            <div class="sample-card">
+                <img src="logo3sixformatics.jpg" alt="Sample 2">
+                <div class="sample-caption">Emblem Variation II</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>© 2025 SixFormatix System</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script>
+    // 1. JAM DIGITAL
+    function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('id-ID', { hour12: false });
+        const el = document.getElementById('jam');
+        if(el) el.innerText = time;
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    // 2. EFEK 3D TILT
+    VanillaTilt.init(document.querySelector(".tilt-card"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.3,
+    });
+</script>
 
 </body>
 </html>

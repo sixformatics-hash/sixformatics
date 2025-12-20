@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>SixFormatix | Jadwal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* WRAPPER AGAR KONTEN DI TENGAH */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .centering-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Mulai dari atas, bukan tengah vertikal */
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .glass-container-jadwal {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 1000px; /* Batas lebar agar tidak terlalu melar */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* GRID SYSTEM UNTUK HARI */
+        .jadwal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* KARTU HARI */
+        .hari-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(79, 220, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .hari-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-yellow);
+            box-shadow: 0 0 15px rgba(255, 238, 0, 0.15);
+        }
+
+        .nama-hari {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* LIST MATKUL */
+        .mapel-list { list-style: none; padding: 0; }
+        .mapel-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .mapel-item:last-child { border-bottom: none; }
+
+        .matkul-name {
+            font-weight: bold; color: white; display: block; margin-bottom: 3px; font-size: 0.95rem;
+        }
+        .matkul-info {
+            display: flex; justify-content: space-between; font-size: 0.8rem; color: #4fdcff; font-family: monospace;
+        }
+        .dosen-name {
+            font-size: 0.75rem; font-style: italic; color: #aaa; display: block; margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo-area">
+        <img src="logo.jpg" class="logo-img">
+        <span class="logo-text">SixFormatix</span>
+    </div>
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tentang.html">Tentang</a></li>
+        <li><a href="anggota.html">Anggota</a></li>
+        <li><a href="jadwal.html">Jadwal</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div id="jam" class="neon-clock">--:--:--</div>
+</nav>
+
+<div class="centering-wrapper">
+    <div class="glass-container-jadwal">
+        <h2 style="font-family: 'Orbitron', sans-serif; color: var(--neon-yellow); font-size: 2rem;">JADWAL PERKULIAHAN</h2>
+        <p style="color: #e0e0e0; margin-bottom: 20px;">Semester 1 - IF-6 (S1)</p>
+
+        <div class="jadwal-grid">
+
+            <div class="hari-card">
+                <h3 class="nama-hari">SENIN</h3>
+                <ul class="mapel-list">
+                    <li class="mapel-item">
+                        <span class="matkul-name">Pola Pikir Digital</span>
+                        <div class="matkul-info"><span>🕒 07.00-08.40</span><span>📍 R5405</span></div>
+                        <span class="dosen-name">Dr. Rio Yunanto, S.Kom., MT.</span>
+                    </li>
+                    <li class="mapel-item">
+                        <span class="matkul-name">Pengantar Sistem & TI</span>
+                        <div class="matkul-info"><span>🕒 11.10-12.50</span><span>📍 RDAGO7</span></div>
+                        <span class="dosen-name">Resti Novianty, M.Kom</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hari-card">
+                <h3 class="nama-hari">SELASA</h3>
+                <ul class="mapel-list">
+                    <li class="mapel-item">
+                        <span class="matkul-name">Algo & Struktur Data 1</span>
+                        <div class="matkul-info"><span>🕒 07.50-09.30</span><span>📍 R5306</span></div>
+                        <span class="dosen-name">Andri Heryandi, MT.</span>
+                    </li>
+                    <li class="mapel-item">
+                        <span class="matkul-name">Pemrograman Web 1 <span style="color:pink; font-size:0.7em;">(PRAK)</span></span>
+                        <div class="matkul-info"><span>🕒 15.20-17.00</span><span>📍 LAB-7</span></div>
+                        <span class="dosen-name">Taryana Suryana, ST., M.Kom</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hari-card">
+                <h3 class="nama-hari">RABU</h3>
+                <ul class="mapel-list">
+                    <li class="mapel-item">
+                        <span class="matkul-name">Matematika Dasar 1</span>
+                        <div class="matkul-info"><span>🕒 09.30-12.00</span><span>📍 R5406</span></div>
+                        <span class="dosen-name">Apriani Puti Purfini, S.Kom.,M.T.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hari-card">
+                <h3 class="nama-hari">KAMIS</h3>
+                <ul class="mapel-list">
+                    <li class="mapel-item">
+                        <span class="matkul-name">Algo & Struktur Data 1 <span style="color:pink; font-size:0.7em;">(PRAK)</span></span>
+                        <div class="matkul-info"><span>🕒 07.50-09.30</span><span>📍 6.009</span></div>
+                        <span class="dosen-name">Andri Heryandi, MT.</span>
+                    </li>
+                    <li class="mapel-item">
+                        <span class="matkul-name">Bahasa Indonesia</span>
+                        <div class="matkul-info"><span>🕒 15.20-17.00</span><span>📍 R5605</span></div>
+                        <span class="dosen-name">Dr. Rani Siti Fitriani, S.S.,M.Hum.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="hari-card">
+                <h3 class="nama-hari">JUMAT</h3>
+                <ul class="mapel-list">
+                    <li class="mapel-item">
+                        <span class="matkul-name">Agama</span>
+                        <div class="matkul-info"><span>🕒 07.00-08.40</span><span>📍 R5406</span></div>
+                        <span class="dosen-name">Assoc. Prof. Usep Mohamad Ishaq</span>
+                    </li>
+                    <li class="mapel-item">
+                        <span class="matkul-name">Logika Matematika</span>
+                        <div class="matkul-info"><span>🕒 09.30-11.10</span><span>📍 R5307</span></div>
+                        <span class="dosen-name">Nelly Indriani Widiastuti, M.T.</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>© 2025 SixFormatix System</footer>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('id-ID', { hour12: false });
+        const el = document.getElementById('jam');
+        if(el) el.innerText = time;
+    }
+    setInterval(updateClock, 1000); updateClock();
+</script>
+
+</body>
+</html>

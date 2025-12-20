@@ -1,292 +1,261 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+/* =========================================
+   1. SETUP UTAMA & BACKGROUND
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&family=Poppins:wght@300;600;800&family=JetBrains+Mono:wght@400;800&display=swap');
+
+:root {
+    --primary-blue: #00c6ff;
+    --deep-blue: #0072ff;
+    --neon-yellow: #ffee00;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-white: #ffffff;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-white);
+    background: linear-gradient(135deg, #021B35, #004e92, #000428); /* Biru Gelap Modern */
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    background-attachment: fixed;
     min-height: 100vh;
-    color: #eaf6ff;
-    position: relative;
-    overflow-x: hidden;
-}
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        linear-gradient(
-            rgba(5, 20, 40, 0.75),
-            rgba(5, 20, 40, 0.75)
-        ),
-        url("logo.jpg") center / cover no-repeat;
-    filter: blur(18px);
-    z-index: -1;
-    transform: scale(1.1);
-}
-body * {
-    position: relative;
 }
 
-/* NAVBAR */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 20px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(10, 26, 47, 0.85);
-    backdrop-filter: blur(10px);
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky; top: 0; z-index: 1000;
 }
 
-/* LOGO */
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
-
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.logo-img { height: 40px; border-radius: 5px; }
 .logo-text {
-    font-size: 22px;
-    font-weight: bold;
-    color: #4fdcff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--primary-blue);
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
 }
 
-/* MENU */
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
+.menu { display: flex; list-style: none; gap: 30px; }
 .menu a {
-    text-decoration: none;
-    color: #eaf6ff;
+    text-decoration: none; color: white; font-weight: 600; transition: 0.3s;
+    font-size: 14px; letter-spacing: 1px;
+}
+.menu a:hover { color: var(--neon-yellow); text-shadow: 0 0 8px var(--neon-yellow); }
+
+/* =========================================
+   3. CONTAINER KACA (GLASSMORPHISM)
+   ========================================= */
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    margin: 40px auto;
+    max-width: 1100px; /* Lebar area */
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+h1, h2, h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 15px; }
+p { line-height: 1.8; opacity: 0.9; margin-bottom: 20px; }
+
+/* =========================================
+   4. FITUR KHUSUS: ANGGOTA & BADGE
+   ========================================= */
+.grid-anggota {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card-anggota {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    position: relative; /* Penting untuk posisi Badge */
     transition: 0.3s;
+    overflow: hidden;
 }
 
-.menu a:hover {
-    color: #4fdcff;
+.card-anggota:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.2);
 }
 
-/* HOME */
-.hero {
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at top, #1fb6ff33, transparent);
-}
-
-.hero h2 {
-    font-size: 44px;
-    color: #ffffff;
-}
-
-.hero p {
-    margin: 15px 0 30px;
-    font-size: 18px;
-    color: #bfe9ff;
-}
-
-/* BUTTON */
-.btn {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #1fb6ff, #4fdcff);
-    color: #062036;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-}
-
-/* TENTANG */
-.tentang {
-    padding: 80px 20%;
-    text-align: center;
-    background: linear-gradient(135deg, #0b3c5d, #062036);
-}
-
-.tentang h2 {
-    color: #4fdcff;
-    margin-bottom: 20px;
-}
-
-.tentang p {
-    color: #d0efff;
-    line-height: 1.8;
-}
-
-/* ANGGOTA */
-.anggota {
-    padding: 80px 15%;
-    text-align: center;
-}
-
-.anggota h2 {
-    color: #4fdcff;
-    margin-bottom: 40px;
-}
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: rgba(31, 182, 255, 0.12);
-    border: 1px solid rgba(79, 220, 255, 0.4);
-    padding: 25px;
-    width: 220px;
-    border-radius: 12px;
-    transition: 0.3s;
-    backdrop-filter: blur(8px);
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    background: rgba(79, 220, 255, 0.25);
-}
-
-/* KONTAK */
-.kontak {
-    padding: 80px 20%;
-    text-align: center;
-    background: linear-gradient(135deg, #062036, #0b3c5d);
-}
-
-.kontak h2 {
-    color: #4fdcff;
-    margin-bottom: 20px;
-}
-
-.ig-text {
-    color: #bfe9ff;
+.foto-anggota {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-blue);
     margin-bottom: 15px;
 }
 
-.ig-link {
-    font-size: 24px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #4fdcff;
-    transition: 0.3s;
-}
-
-.ig-link:hover {
-    color: #1fb6ff;
-}
-
-/* FOOTER */
-footer {
-    background-color: #041423;
-    text-align: center;
-    padding: 20px;
-    color: #9ddcff;
-}
-/* STRUKTUR KELAS */
-.struktur-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 40px 0;
-    flex-wrap: wrap;
-}
-
-.struktur-card {
-    background: rgba(31, 182, 255, 0.15);
-    border: 1px solid rgba(79, 220, 255, 0.4);
-    padding: 30px 40px;
-    border-radius: 14px;
-    text-align: center;
-    min-width: 220px;
-    backdrop-filter: blur(8px);
-}
-
-.struktur-card h3 {
-    margin-bottom: 12px;
-    font-size: 20px;
-    color: #ffffff;
-}
-
+/* Desain Badge (Jabatan) */
 .badge {
-    display: inline-block;
-    padding: 6px 14px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 12px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.badge-ketua { background: linear-gradient(45deg, #FFD700, #FFA500); } /* Emas */
+.badge-wakil { background: linear-gradient(45deg, #00c6ff, #0072ff); } /* Biru */
+.badge-anggota { background: linear-gradient(45deg, #00ff87, #60efff); opacity: 0.8; } /* Hijau Cyan */
+
+/* =========================================
+   5. LAIN-LAIN (TILT & HOME)
+   ========================================= */
+.tilt-card { transform-style: preserve-3d; }
+.btn-neon {
+    display: inline-block; padding: 12px 30px;
+    background: var(--neon-yellow); color: #000;
+    font-weight: 800; text-decoration: none; border-radius: 5px;
+    margin-top: 20px; transition: 0.3s;
+}
+.btn-neon:hover { background: #fff; box-shadow: 0 0 20px #fff; }
+
+footer { text-align: center; padding: 25px; font-size: 12px; opacity: 0.7; }
+/* --- JAM DIGITAL NEON --- */
+.neon-clock {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-yellow); /* Sesuai tema kuning neon */
+    font-size: 1.1rem;
     font-weight: bold;
-    background: linear-gradient(135deg, #1fb6ff, #4fdcff);
-    color: #062036;
-}
-
-/* Variasi kecil */
-.ketua {
-    box-shadow: 0 0 18px rgba(79, 220, 255, 0.4);
-}
-
-.wakil {
-    opacity: 0.95;
-}
-/* SUB JUDUL */
-.subjudul {
-    margin: 60px 0 30px;
-    color: #4fdcff;
-    font-size: 24px;
-}
-
-/* BADGE ANGGOTA */
-.badge-anggota {
-    font-size: 12px;
-    padding: 4px 12px;
-    border-radius: 12px;
-    border: 1px solid rgba(79, 220, 255, 0.6);
-    color: #4fdcff;
-    background: rgba(10, 26, 47, 0.6);
-}
-
-/* GRID ANGGOTA */
-.anggota-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
-}
-
-.anggota-card {
-    background: rgba(31, 182, 255, 0.12);
-    border: 1px solid rgba(79, 220, 255, 0.35);
-    padding: 16px;
-    border-radius: 12px;
+    letter-spacing: 2px;
+    padding: 8px 15px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    margin-left: 20px; /* Jarak dari menu */
+    display: inline-block;
+    min-width: 120px;
     text-align: center;
-    backdrop-filter: blur(6px);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+}
+
+/* Agar Responsif di HP (Jam pindah ke bawah atau hilang jika terlalu sempit) */
+@media (max-width: 768px) {
+    .neon-clock {
+        display: none; /* Sembunyikan di HP biar ga penuh */
+    }
+}
+/* =========================================
+   8. TAMBAHAN: JAM DIGITAL NEON
+   ========================================= */
+.neon-clock {
+    font-family: 'Orbitron', sans-serif; /* Font Tech */
+    color: var(--neon-yellow);
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 238, 0, 0.3);
+    border-radius: 50px; /* Bentuk kapsul futuristik */
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(255, 238, 0, 0.1);
+    margin-left: 20px;
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+    backdrop-filter: blur(5px);
     transition: 0.3s;
 }
 
-.anggota-card:hover {
-    transform: translateY(-6px);
-    background: rgba(79, 220, 255, 0.25);
+.neon-clock:hover {
+    box-shadow: 0 0 25px rgba(255, 238, 0, 0.4);
+    border-color: var(--neon-yellow);
+    text-shadow: 0 0 5px var(--neon-yellow);
+    transform: scale(1.05);
 }
+
+/* Sembunyikan jam di HP agar tidak menu penuh */
+@media (max-width: 768px) {
+    .neon-clock { display: none; }
+}
+/* =========================================
+   TAMBAHAN: WIDGET MUSIK NEON
+   ========================================= */
+.music-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon-yellow);
+    border-radius: 50px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9999; /* Agar selalu di atas */
+    box-shadow: 0 0 20px rgba(255, 238, 0, 0.2);
+    transition: 0.3s;
+}
+
+.music-widget:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 238, 0, 0.5);
+}
+
+.music-disc {
+    font-size: 1.5rem;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused;
+}
+
+.play-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.play-btn:hover { color: var(--neon-yellow); }
+
+.song-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: white;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }

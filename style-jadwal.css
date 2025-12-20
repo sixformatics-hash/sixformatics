@@ -1,0 +1,162 @@
+/* --- STYLE KHUSUS JADWAL & MUSIK --- */
+
+/* Wrapper Jadwal */
+.jadwal-section {
+    padding: 60px 20px;
+    text-align: center;
+    /* Memberi ruang di bawah agar tidak tertutup widget musik */
+    padding-bottom: 100px;
+}
+
+.jadwal-title {
+    color: #4fdcff;
+    font-size: 32px;
+    margin-bottom: 40px;
+    font-family: 'Orbitron', sans-serif; /* Font Robotik */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(79, 220, 255, 0.5);
+}
+
+/* Container Tabel (Supaya bisa di-scroll di HP) */
+.table-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto; /* Scroll samping jika layar kecil */
+    padding: 10px;
+}
+
+/* Desain Tabel Hologram */
+.hologram-table {
+    width: 100%;
+    max-width: 1100px;
+    border-collapse: collapse;
+    background: rgba(10, 26, 47, 0.75); /* Warna gelap transparan */
+    backdrop-filter: blur(12px); /* Efek kaca buram */
+    border: 1px solid rgba(79, 220, 255, 0.3); /* Garis tepi neon */
+    border-radius: 16px;
+    overflow: hidden; /* Supaya sudut tumpul terlihat */
+    box-shadow: 0 0 30px rgba(31, 182, 255, 0.1);
+    color: #d0efff;
+}
+
+/* Header Tabel */
+.hologram-table th {
+    background: rgba(31, 182, 255, 0.15);
+    color: #4fdcff;
+    padding: 18px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: 2px solid rgba(79, 220, 255, 0.2);
+}
+
+/* Isi Tabel */
+.hologram-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(79, 220, 255, 0.08);
+    font-size: 15px;
+}
+
+/* Efek Hover Baris */
+.hologram-table tr:hover {
+    background: rgba(79, 220, 255, 0.1); /* Nyala saat mouse lewat */
+    transition: 0.3s;
+}
+
+/* Badge Hari (Senin, Selasa, dll) */
+.hari-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #1fb6ff, #4fdcff);
+    color: #051a2e;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    box-shadow: 0 0 12px rgba(79, 220, 255, 0.6);
+}
+
+/* --- WIDGET MUSIK CYBERPUNK --- */
+.music-widget {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(6, 32, 54, 0.9);
+    border: 1px solid #4fdcff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 9999; /* Selalu di paling atas */
+    box-shadow: 0 0 20px rgba(79, 220, 255, 0.4);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease;
+}
+
+.music-widget:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(79, 220, 255, 0.6);
+}
+
+/* Tombol Play/Pause */
+.play-btn {
+    background: #4fdcff;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: #062036;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px #4fdcff;
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    background: #fff;
+    color: #4fdcff;
+}
+
+.song-info {
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* Animasi Equalizer (Batang Naik Turun) */
+.equalizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 18px;
+}
+
+.bar {
+    width: 4px;
+    background: #4fdcff;
+    border-radius: 2px;
+    animation: bounce 1s infinite ease-in-out;
+    animation-play-state: paused; /* Diam kalau lagu mati */
+    height: 4px; /* Tinggi awal */
+}
+
+/* Variasi tinggi animasi */
+.bar:nth-child(1) { animation-duration: 0.6s; }
+.bar:nth-child(2) { animation-duration: 0.8s; }
+.bar:nth-child(3) { animation-duration: 0.5s; }
+.bar:nth-child(4) { animation-duration: 0.7s; }
+
+/* Class tambahan via JS saat lagu main */
+.equalizer.playing .bar {
+    animation-play-state: running;
+}
+
+@keyframes bounce {
+    0%, 100% { height: 4px; }
+    50% { height: 100%; }
+}

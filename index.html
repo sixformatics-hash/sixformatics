@@ -4,6 +4,57 @@
     <meta charset="UTF-8">
     <title>SixFormatix | Home</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* TAMBAHAN CSS KHUSUS EXPLORE SYSTEM (MODEL KARTU) */
+        .explore-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .explore-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            width: 160px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 198, 255, 0.1);
+            border-color: #00c6ff;
+            box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card-title {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .card-desc {
+            font-size: 0.7rem;
+            color: #aaa;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,21 +63,111 @@
         <img src="logo.jpg" class="logo-img">
         <span class="logo-text">SixFormatix</span>
     </div>
-
     <ul class="menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="tentang.html">Tentang</a></li>
         <li><a href="anggota.html">Anggota</a></li>
+        <li><a href="jadwal.html">Jadwal</a></li>
         <li><a href="kontak.html">Kontak</a></li>
     </ul>
+    <div id="jam" class="neon-clock">--:--:--</div>
 </nav>
 
-<section class="hero">
-    <h2>Welcome to SixFormatix</h2>
-    <p>Kelas dengan semangat inovasi dan teknologi</p>
-</section>
+<div class="glass-container" style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center;">
+    <div><span class="greeting">&lt;System Ready /&gt;</span></div>
+    <h1 style="font-size: 3rem; margin: 0;">
+        We are <br>
+        <span class="typing-text"></span><span class="cursor">&nbsp;</span>
+    </h1>
+    <p style="margin-top: 20px; font-size: 1.1rem; color: #d0efff;">
+        Solidaritas Tanpa Batas, Kreativitas Tanpa Henti.
+    </p>
 
-<footer>© 2025 SixFormatix</footer>
+    <div class="explore-grid">
+        <a href="anggota.html" class="explore-card">
+            <span class="card-icon">👥</span>
+            <span class="card-title">MEMBERS</span>
+            <div class="card-desc">Data Anggota Kelas</div>
+        </a>
+
+        <a href="jadwal.html" class="explore-card">
+            <span class="card-icon">📅</span>
+            <span class="card-title">SCHEDULE</span>
+            <div class="card-desc">Jadwal Mata Kuliah</div>
+        </a>
+
+        <a href="tentang.html" class="explore-card">
+            <span class="card-icon">📂</span>
+            <span class="card-title">ABOUT</span>
+            <div class="card-desc">Informasi Sistem</div>
+        </a>
+
+        <a href="kontak.html" class="explore-card">
+            <span class="card-icon">📡</span>
+            <span class="card-title">CONNECT</span>
+            <div class="card-desc">Hubungi Admin</div>
+        </a>
+    </div>
+</div>
+
+<footer>© 2025 SixFormatix System</footer>
+
+<div class="music-widget">
+    <div class="music-disc" id="musicIcon">💿</div>
+    <div class="song-title">SixFormatix Vibe</div>
+    <button class="play-btn" onclick="toggleMusic()" id="playBtn">▶</button>
+    <audio id="audioPlayer" loop>
+        <source src="lagu.mp3" type="audio/mp3">
+    </audio>
+</div>
+
+<script>
+    // 1. SCRIPT JAM
+    function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('id-ID', { hour12: false });
+        const el = document.getElementById('jam');
+        if(el) el.innerText = time;
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    // 2. SCRIPT TYPING TEXT
+    const textElement = document.querySelector(".typing-text");
+    const texts = ["SixFormatix", "Innovators", "Family"];
+    let count = 0, index = 0, currentText = "", letter = "";
+
+    (function type() {
+        if (count === texts.length) count = 0;
+        currentText = texts[count];
+        letter = currentText.slice(0, ++index);
+        if(textElement) textElement.textContent = letter;
+        if (letter.length === currentText.length) {
+            count++; index = 0;
+            setTimeout(type, 2000);
+        } else {
+            setTimeout(type, 200);
+        }
+    })();
+
+    // 3. SCRIPT MUSIK
+    const audio = document.getElementById("audioPlayer");
+    const playBtn = document.getElementById("playBtn");
+    const musicIcon = document.getElementById("musicIcon");
+
+    function toggleMusic() {
+        if (!audio) return;
+        if (audio.paused) {
+            audio.play().then(() => {
+                playBtn.innerText = "⏸";
+                musicIcon.style.animationPlayState = "running";
+            }).catch(e => console.log(e));
+        } else {
+            audio.pause();
+            playBtn.innerText = "▶";
+            musicIcon.style.animationPlayState = "paused";
+        }
+    }
+</script>
 
 </body>
 </html>

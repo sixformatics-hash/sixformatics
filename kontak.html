@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>SixFormatix | Kontak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .kontak-container { text-align: center; padding: 40px 20px; }
+        .kontak-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+        .contact-card { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 20px; width: 280px; transition: 0.3s; text-decoration: none; display: block; }
+        .contact-card:hover { border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 238, 0, 0.3); transform: translateY(-5px); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .contact-label { font-family: 'Orbitron', sans-serif; color: var(--primary-blue); display: block; margin-bottom: 5px; }
+        .contact-value { color: white; font-weight: bold; }
+        .alamat-area { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
 </head>
 <body>
 
@@ -16,19 +27,51 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="tentang.html">Tentang</a></li>
         <li><a href="anggota.html">Anggota</a></li>
+        <li><a href="jadwal.html">Jadwal</a></li>
         <li><a href="kontak.html">Kontak</a></li>
     </ul>
+    <div id="jam" class="neon-clock">--:--:--</div>
 </nav>
 
-<section class="kontak">
-    <h2>Kontak Kelas</h2>
-    <p class="ig-text">Instagram Resmi</p>
-    <a class="ig-link" href="https://instagram.com/sixformatics" target="_blank">
-        @sixformatics
-    </a>
-</section>
+<div class="glass-container kontak-container">
+    <h2 style="color: var(--neon-yellow);">HUBUNGI KAMI</h2>
+    <p style="color: #e0e0e0;">Jaringan kami selalu terbuka untuk koneksi baru.</p>
 
-<footer>© 2025 SixFormatix</footer>
+    <div class="kontak-grid">
+        <a href="https://instagram.com/sixformatics" target="_blank" class="contact-card">
+            <div class="card-icon">📸</div>
+            <span class="contact-label">INSTAGRAM</span>
+            <span class="contact-value">@sixformatics</span>
+        </a>
+        <a href="mailto:sixformatics@gmail.com" class="contact-card">
+            <div class="card-icon">📩</div>
+            <span class="contact-label">EMAIL</span>
+            <span class="contact-value">sixformatics@gmail.com</span>
+        </a>
+    </div>
+
+    <div class="alamat-area">
+        <p style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.7;">LOKASI BASECAMP:</p>
+        <h3 style="color: var(--primary-blue); margin: 10px 0;">UNIVERSITAS KOMPUTER INDONESIA</h3>
+        <p style="max-width: 500px; margin: 0 auto; line-height: 1.6;">
+            Jl. Dipati Ukur No.112-116, Lebakgede, Kecamatan Coblong,<br>
+            Kota Bandung, Jawa Barat 40132
+        </p>
+    </div>
+</div>
+
+<footer>© 2025 SixFormatix System</footer>
+
+<script>
+    // JAM DIGITAL
+    function updateClock() {
+        const now = new Date();
+        const time = now.toLocaleTimeString('id-ID', { hour12: false });
+        const el = document.getElementById('jam');
+        if(el) el.innerText = time;
+    }
+    setInterval(updateClock, 1000); updateClock();
+</script>
 
 </body>
 </html>
