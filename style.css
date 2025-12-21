@@ -906,4 +906,77 @@ input:focus, textarea:focus {
 [class*="jadwal"] li:hover *,
 [class*="schedule"] li:hover * {
     text-shadow: 0.5px 0.5px 0px rgba(0,0,0,0.5);
+}/* === MOBILE RESPONSIVE OPTIMIZATION (THE FIX) === */
+
+@media (max-width: 768px) {
+    /* 1. Atur Container Utama */
+    .container, .jadwal-container, main {
+        padding: 10px !important;
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+
+    /* 2. Optimasi Kartu Jadwal & Anggota di HP */
+    .jadwal-container li,
+    .jadwal-container div,
+    .card-anggota,
+    .explore-card {
+        width: 100% !important; /* Biar nggak kepotong samping */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 15px !important;
+        transform: none !important; /* Matiin transform default biar nggak pusing di layar kecil */
+    }
+
+    /* 3. Penyesuaian Efek Hover untuk Layar Sentuh */
+    /* Di HP nggak ada hover kursor, adanya 'tap'. Jadi kita ringankan glow-nya */
+    .jadwal-container li:active,
+    .card-anggota:active {
+        transform: scale(0.98) !important; /* Efek ditekan */
+        filter: brightness(1.2) !important;
+        box-shadow: 0 0 15px var(--primary-blue) !important;
+    }
+
+    /* 4. Perbaikan Teks agar Enak Dibaca di HP */
+    h1, .hero-title {
+        font-size: 1.8rem !important;
+        letter-spacing: 2px !important;
+        text-align: center;
+    }
+
+    [class*="time"], [class*="jam"] {
+        font-size: 14px !important;
+        display: block !important; /* Jam jadi baris sendiri di atas teks */
+        margin-bottom: 5px;
+    }
+
+    /* 5. Matiin Efek Berat (Opsi buat HP Kentang) */
+    /* Kita kurangi blur/noise yang terlalu kompleks di HP */
+    html::after {
+        opacity: 0.02 !important; /* Noise tipis aja */
+    }
+}/* Pastikan menu list-nya kelihatan */
+.navbar .menu {
+    display: flex !important;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar .menu li {
+    margin: 0 15px;
+}
+
+.navbar .menu li a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+/* Efek pas menu Archive di-hover */
+.navbar .menu li a:hover {
+    color: var(--neon-yellow);
+    text-shadow: 0 0 10px var(--neon-yellow);
 }

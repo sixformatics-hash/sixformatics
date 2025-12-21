@@ -1,0 +1,232 @@
+:root {
+    --primary-blue: #00c6ff;
+    --neon-yellow: #ffee00;
+    --terminal-green: #00ff41;
+}
+
+body {
+    background-color: #050505;
+    color: white;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* HEADER */
+.archive-header { padding-top: 120px; text-align: center; }
+.hari-title span { color: var(--neon-yellow); font-size: 2.5rem; letter-spacing: 5px; }
+.system-status { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--primary-blue); margin-top: 10px; }
+.blink-green { color: var(--terminal-green); animation: blink 1s infinite; }
+
+/* GRID AWAL */
+.photo-wall-container { padding: 40px 5%; }
+.photo-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+
+.photo-item {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 198, 255, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.photo-item:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-5px);
+    background: rgba(0, 198, 255, 0.05);
+}
+
+.photo-item img {
+    width: 100%; height: 220px; object-fit: cover; border-radius: 4px;
+    filter: grayscale(1); cursor: pointer; transition: 0.5s;
+}
+.photo-item:hover img { filter: grayscale(0); }
+
+.photo-info { font-family: 'JetBrains Mono'; font-size: 9px; color: var(--primary-blue); margin-top: 12px; }
+
+/* SLOT KOSONG */
+.empty-slot { border: 1px dashed rgba(0, 198, 255, 0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0.5; }
+.empty-icon { font-size: 30px; margin-bottom: 10px; }
+
+/* MODAL & DATA TERMINAL */
+.modal-overlay {
+    display: none; position: fixed; top: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95); z-index: 10000; justify-content: center; align-items: center;
+}
+
+.modal-container { width: 90%; max-width: 800px; position: relative; }
+
+.modal-wrapper { position: relative; border: 1px solid var(--primary-blue); padding: 5px; overflow: hidden; }
+.modal-content { width: 100%; display: block; border-radius: 2px; }
+
+/* EFEK DATA DI BAWAH FOTO */
+.data-terminal {
+    background: rgba(0, 20, 40, 0.8);
+    border: 1px solid var(--primary-blue);
+    margin-top: 15px; padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.loader-container { margin-bottom: 15px; }
+.status-node { font-size: 12px; letter-spacing: 2px; }
+
+.progress-bar { width: 100%; height: 2px; background: rgba(0,198,255,0.1); margin-top: 8px; }
+.progress-fill { width: 0%; height: 100%; background: var(--primary-blue); transition: width 0.8s ease-in-out; }
+
+.caption-text { color: white; font-size: 14px; letter-spacing: 2px; margin: 10px 0; }
+.system-logs { font-size: 9px; color: var(--primary-blue); opacity: 0.5; }
+
+/* SCAN LINE */
+.scan-line {
+    position: absolute; width: 100%; height: 4px; background: var(--primary-blue);
+    box-shadow: 0 0 15px var(--primary-blue); top: 0; z-index: 2;
+    animation: scan 3s linear infinite;
+}
+
+@keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* FOOTER */
+.footer { padding: 60px; display: flex; justify-content: center; border-top: 1px solid rgba(0,198,255,0.1); }
+.copyright { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--primary-blue); opacity: 0.6; letter-spacing: 2px; }
+
+.close-modal { position: absolute; top: -50px; right: 0; color: white; font-size: 40px; cursor: pointer; }
+/* --- BUMBU TERMINAL DATA (PURE CSS) --- */
+
+/* Bikin kontainer caption jadi kaya terminal */
+#caption {
+    display: block;
+    background: rgba(0, 20, 40, 0.9);
+    border-left: 3px solid var(--primary-blue);
+    padding: 15px;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    color: var(--neon-yellow);
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Animasi Teks Mengetik di awal caption */
+#caption::before {
+    content: "DECRYPTED_DATA: ";
+    color: var(--primary-blue);
+    font-size: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Loading Bar Otomatis di bawah Caption */
+#caption::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-blue);
+    margin-top: 10px;
+    box-shadow: 0 0 10px var(--primary-blue);
+    animation: barFill 1.5s ease-out forwards;
+}
+
+/* Tambahan Log Sistem di bawah loading bar */
+.data-info::after {
+    content: "> TRACING_SOURCE... DONE \A > BYPASSING_ENCRYPTION... 100% \A > ACCESS_GRANTED";
+    display: block;
+    white-space: pre;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--primary-blue);
+    opacity: 0.5;
+    margin-top: 15px;
+    line-height: 1.5;
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Animasi Scan Line biar makin tajem */
+.scan-line {
+    height: 3px;
+    background: var(--primary-blue);
+    opacity: 0.8;
+    box-shadow: 0 0 20px var(--primary-blue);
+    animation: scanMove 2s linear infinite;
+}
+
+/* KEYFRAMES UNTUK BUMBU CSS */
+@keyframes barFill {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes scanMove {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+/* Efek kedip pada status */
+.status-node {
+    animation: blink-node 0.5s infinite alternate;
+}
+
+@keyframes blink-node {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+/* --- BUMBU ELEGAN UNTUK CLASSIFIED_ARCHIVE --- */
+
+.hari-title span {
+    color: var(--neon-yellow);
+    text-shadow: 0 0 10px rgba(255, 238, 0, 0.6);
+    letter-spacing: 7px; /* Kasih jarak antar huruf biar tegas */
+    position: relative;
+    animation: simple-flicker 3s infinite; /* Efek kedip halus */
+}
+
+/* Garis dekorasi di bawah judul biar lebih rapi */
+.hari-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: var(--primary-blue);
+    margin: 15px auto;
+    box-shadow: 0 0 10px var(--primary-blue);
+    opacity: 0.5;
+}
+
+/* Animasi kedip lampu neon (tidak brutal, cuma halus) */
+@keyframes simple-flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(255, 238, 0, 0.6);
+    }
+    20%, 24%, 55% {
+        opacity: 0.7;
+        text-shadow: none;
+    }
+}
+
+/* Efek scan line tipis lewat di judul (opsional, sangat halus) */
+.hari-title span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: skewX(-25deg);
+    animation: shine-slow 5s infinite;
+}
+
+@keyframes shine-slow {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}

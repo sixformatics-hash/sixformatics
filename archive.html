@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SixFormatix | Archive System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-logo.css">
+    <link rel="stylesheet" href="archive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-area">
+            <img src="logo.jpg" class="logo-img">
+            <span class="logo-text">SixFormatix</span>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="anggota.html">Anggota</a></li>
+            <li><a href="jadwal.html">Jadwal</a></li>
+            <li><a href="archive.html" class="active">Archive</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="archive-header">
+        <h2 class="hari-title"><span>CLASSIFIED_ARCHIVE</span></h2>
+        <div class="system-status">SYSTEM_STATUS: <span class="blink-green">STABLE</span></div>
+    </section>
+
+    <div class="photo-wall-container">
+        <div class="photo-wall" id="main-gallery">
+            <div class="photo-item clickable">
+                <img src="fotobersama1.jpg" alt="DATA_NODE_01: GEDUNG_M_UNIKOM">
+                <div class="photo-info">LOCATION: GEDUNG_M_UNIKOM</div>
+            </div>
+            <div class="photo-item clickable">
+                <img src="ulangan.jpg" alt="DATA_NODE_02: EXAM_SESSION_KAMPUS">
+                <div class="photo-info">LOCATION: AREA_KAMPUS_UNIKOM</div>
+            </div>
+            </div>
+    </div>
+
+    <footer class="footer">
+        <div class="copyright">
+            © 2025 SIXFORMATICS // PROTOCOL_V.2.5 // [ ACCESS_GRANTED ]
+        </div>
+    </footer>
+
+    <div id="photoModal" class="modal-overlay">
+        <div class="modal-container">
+            <span class="close-modal">&times;</span>
+            <div class="modal-wrapper">
+                <div class="scan-line"></div>
+                <img class="modal-content" id="fullImage">
+            </div>
+
+            <div class="data-terminal">
+                <div class="loader-container">
+                    <span class="status-node">INITIALIZING_DECRYPTION...</span>
+                    <div class="progress-bar"><div class="progress-fill"></div></div>
+                </div>
+                <div id="caption" class="caption-text"></div>
+                <div class="system-logs">TRACING_SOURCE... DONE // ENCRYPTION_BYPASS... 100%</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. GENERATE 20 TOTAL SLOT (2 Isi + 18 Kosong)
+        const gallery = document.getElementById('main-gallery');
+        for (let i = 1; i <= 18; i++) {
+            const slot = document.createElement('div');
+            slot.className = 'photo-item empty-slot';
+            slot.innerHTML = `<div class="empty-icon">+</div><div class="photo-info">DATABASE_ENTRY_${i+2}</div>`;
+            gallery.appendChild(slot);
+        }
+
+        const modal = document.getElementById("photoModal");
+        const modalImg = document.getElementById("fullImage");
+        const captionText = document.getElementById("caption");
+        const statusNode = document.querySelector('.status-node');
+        const progressFill = document.querySelector('.progress-fill');
+
+        // 2. FUNGSI KLIK FOTO
+        document.addEventListener('click', function (e) {
+            const item = e.target.closest('.photo-item.clickable');
+            if (item) {
+                const img = item.querySelector('img');
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                captionText.innerText = img.alt;
+
+                // Animasi Loading Bar
+                progressFill.style.width = "0%";
+                statusNode.innerText = "BYPASSING_SECURITY...";
+                statusNode.style.color = "#ffee00";
+
+                setTimeout(() => {
+                    progressFill.style.width = "100%";
+                    statusNode.innerText = "ACCESS_GRANTED_DECRYPT_SUCCESS";
+                    statusNode.style.color = "#00ff41";
+                }, 800);
+            }
+        });
+
+        // 3. CLOSE MODAL
+        document.querySelector('.close-modal').onclick = () => modal.style.display = "none";
+        window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+    </script>
+</body>
+</html>
