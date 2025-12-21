@@ -259,3 +259,651 @@ footer { text-align: center; padding: 25px; font-size: 12px; opacity: 0.7; }
 }
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
+/* === SCROLLBAR SYSTEM KEREN === */
+
+/* Lebar scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Warna track (jalur scroll) */
+::-webkit-scrollbar-track {
+    background: #021B35;
+}
+
+/* Warna batang (thumb) yang digeser */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--primary-blue); /* Efek cahaya neon */
+}
+
+/* Pas di-hover mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-yellow);
+    box-shadow: 0 0 15px var(--neon-yellow);
+}
+/* === CUSTOM CONTEXT MENU (KLIK KANAN) === */
+#context-menu {
+    position: absolute;
+    display: none; /* Sembunyi dulu */
+    background: rgba(10, 25, 47, 0.95);
+    border: 1px solid var(--primary-blue);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 10px 0;
+    min-width: 180px;
+    z-index: 10000;
+}
+
+#context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#context-menu ul li {
+    padding: 10px 20px;
+    color: #fff;
+    font-family: 'Consolas', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    justify-content: space-between;
+}
+
+#context-menu ul li:hover {
+    background: rgba(0, 198, 255, 0.2);
+    color: var(--neon-yellow);
+    padding-left: 25px; /* Efek geser dikit */
+}
+
+#context-menu hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+}/* === CUSTOM BLOK TEKS (SELECTION) === */
+
+/* Warna pas nge-blok teks */
+::selection {
+    background: var(--neon-yellow); /* Latar jadi Kuning Neon */
+    color: #000; /* Teks jadi Hitam (biar kontras) */
+    text-shadow: none; /* Hilangkan efek glow biar jelas dibaca */
+}
+
+/* Khusus browser Firefox (opsional) */
+::-moz-selection {
+    background: var(--neon-yellow);
+    color: #000;
+    text-shadow: none;
+}/* === CRT SCANLINE OVERLAY === */
+/* Garis-garis halus di seluruh layar */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px; /* Ukuran garis */
+    z-index: 99999; /* Paling depan */
+    pointer-events: none; /* PENTING: Biar tetep bisa diklik tembus */
+    opacity: 0.6; /* Transparansi garis */
+}
+
+/* Efek Vignette (Pojokan Gelap) */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 99998;
+    pointer-events: none;
+}/* === SCROLL REVEAL ANIMATION === */
+.reveal {
+    position: relative;
+    transform: translateY(50px); /* Geser ke bawah dulu */
+    opacity: 0; /* Sembunyi dulu */
+    transition: all 1s ease; /* Durasi animasi */
+}
+
+.reveal.active {
+    transform: translateY(0); /* Balik ke posisi asal */
+    opacity: 1; /* Muncul */
+}
+/* === HOLOGRAPHIC IMAGE FILTER === */
+
+/* Target ke foto anggota & foto di menu tentang */
+.card-anggota img,
+.avatar-circle, /* Kalau lo pake inisial doang */
+.tilt-card img,
+.sample-card img {
+    /* Ubah jadi kebiruan (Cyan Blueprint Look) */
+    filter: grayscale(100%) brightness(0.8) sepia(100%) hue-rotate(170deg) saturate(200%);
+    transition: all 0.5s ease; /* Transisi halus */
+    opacity: 0.8;
+}
+
+/* Pas Di-Hover jadi normal */
+.card-anggota:hover img,
+.card-anggota:hover .avatar-circle,
+.tilt-card:hover img,
+.sample-card:hover img {
+    filter: none; /* Balik ke warna asli */
+    opacity: 1;
+    transform: scale(1.05); /* Zoom dikit biar smooth */
+}
+
+/* Tambahan: Kasih border cahaya pas hover */
+.card-anggota:hover, .tilt-card:hover {
+    box-shadow: 0 0 25px rgba(0, 198, 255, 0.6);
+}/* === LEVITATION ANIMATION (MELAYANG) === */
+
+/* Definisi Gerakan: Naik Turun Halus */
+@keyframes float-space {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); } /* Naik 15px */
+    100% { transform: translateY(0px); }
+}
+
+/* Terapkan ke Kartu Menu Utama */
+.explore-card {
+    /* Animasi: Nama, Durasi, Tipe, Loop */
+    animation: float-space 4s ease-in-out infinite;
+}
+
+/* Biar gerakannya gak barengan (biar natural) */
+/* Kartu ke-2 telat dikit geraknya */
+.explore-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+/* Kartu ke-3 telat lagi */
+.explore-card:nth-child(3) {
+    animation-delay: 1s;
+}
+/* Kartu ke-4 */
+.explore-card:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+/* Pas di-Hover, stop animasinya biar gampang diklik */
+.explore-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px); /* Tetap naik dikit */
+}
+/* === GLASS SHEEN EFFECT (KILATAN CAHAYA) === */
+
+/* Pastikan kartu punya posisi relative & overflow hidden biar cahaya gak keluar kotak */
+.explore-card, .card-anggota, .tilt-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Layer Cahaya Putih Transparan */
+.explore-card::before, .card-anggota::before, .tilt-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Mulai dari luar kiri */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%, /* Kilap Putih di tengah */
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg); /* Miringin cahayanya */
+    animation: shine-sweep 6s infinite; /* Jalan setiap 6 detik */
+    pointer-events: none; /* Biar tetep bisa diklik */
+}
+
+/* Animasi Gerakannya */
+@keyframes shine-sweep {
+    0% { left: -150%; opacity: 0; }
+    10% { opacity: 1; }
+    20% { left: 200%; opacity: 0; } /* Lewat cepet dalam 20% durasi */
+    100% { left: 200%; opacity: 0; } /* Sisanya nunggu (jeda) */
+}
+/* === NEON PULSE TEXT (JUDUL BERDENYUT) === */
+
+h1, h2, .jadwal-title, .galeri-title {
+    animation: text-flicker 4s infinite alternate;
+}
+
+@keyframes text-flicker {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+        opacity: 1;
+    }
+    50% {
+        /* Redup Dikit */
+        text-shadow: 0 0 5px rgba(0, 198, 255, 0.3);
+        opacity: 0.9;
+    }
+    52% {
+        /* Kedip Cepat (Glitch Effect dikit) */
+        text-shadow: 0 0 20px rgba(0, 198, 255, 0.9);
+        opacity: 0.8;
+    }
+    54% {
+        opacity: 1;
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+        opacity: 1;
+    }
+}
+/* === HUD TARGET LOCK (BINGKAI SIKU) === */
+
+.explore-card, .card-anggota {
+    /* Siapin transisi buat border */
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 198, 255, 0.1); /* Border tipis awal */
+}
+
+.explore-card:hover, .card-anggota:hover {
+    /* Hilangkan border biasa */
+    border-color: transparent;
+
+    /* Gambar 4 Siku di pojok pake Background Gradient */
+    background-image:
+        linear-gradient(to right, var(--neon-yellow) 2px, transparent 2px), /* Siku Kiri Atas Tegak */
+        linear-gradient(to bottom, var(--neon-yellow) 2px, transparent 2px), /* Siku Kiri Atas Datar */
+
+        linear-gradient(to left, var(--neon-yellow) 2px, transparent 2px),  /* Siku Kanan Atas Tegak */
+        linear-gradient(to bottom, var(--neon-yellow) 2px, transparent 2px), /* Siku Kanan Atas Datar */
+
+        linear-gradient(to right, var(--neon-yellow) 2px, transparent 2px), /* Siku Kiri Bawah Tegak */
+        linear-gradient(to top, var(--neon-yellow) 2px, transparent 2px),    /* Siku Kiri Bawah Datar */
+
+        linear-gradient(to left, var(--neon-yellow) 2px, transparent 2px),  /* Siku Kanan Bawah Tegak */
+        linear-gradient(to top, var(--neon-yellow) 2px, transparent 2px);    /* Siku Kanan Bawah Datar */
+
+    /* Posisi Siku-Sikunya */
+    background-position:
+        top left, top left,       /* Pojok Kiri Atas */
+        top right, top right,     /* Pojok Kanan Atas */
+        bottom left, bottom left, /* Pojok Kiri Bawah */
+        bottom right, bottom right; /* Pojok Kanan Bawah */
+
+    background-size: 20px 20px; /* Ukuran Siku */
+    background-repeat: no-repeat;
+
+    /* Efek Zoom Dikit biar kerasa "Locking" */
+    transform: scale(1.02) translateY(-10px);
+    box-shadow: inset 0 0 20px rgba(255, 238, 0, 0.1); /* Glow dalem */
+}/* === LASER LINE NAVIGATION === */
+
+/* Target ke semua link navigasi (sesuaikan class link lo) */
+/* Biasanya <a> atau .nav-link */
+a {
+    position: relative;
+    text-decoration: none; /* Hapus garis bawah bawaan */
+}
+
+/* Bikin Garis Laser Tersembunyi */
+a::after {
+    content: '';
+    position: absolute;
+    width: 0%; /* Mulai dari 0 lebar */
+    height: 2px; /* Ketebalan laser */
+    bottom: -5px; /* Jarak dari teks */
+    left: 50%; /* Mulai dari tengah */
+    background-color: var(--neon-yellow); /* Warna Laser */
+    transition: all 0.3s ease-in-out; /* Animasi halus */
+    box-shadow: 0 0 10px var(--neon-yellow); /* Cahaya Laser */
+    transform: translateX(-50%); /* Biar beneran sentral */
+}
+
+/* Pas Di-Hover, Laser Melebar */
+a:hover::after {
+    width: 100%; /* Melebar jadi 100% */
+}/* === CHROMATIC TEXT HOVER (TEKS BIAS) === */
+
+/* Terapkan ke Judul Besar & Nama Anggota */
+h1, h2, .name-text {
+    transition: text-shadow 0.2s ease;
+}
+
+/* Pas Di-Hover: Teks pecah jadi Merah (kiri) dan Biru (kanan) */
+h1:hover, h2:hover, .name-text:hover {
+    text-shadow:
+        -3px 0 0 rgba(255, 0, 80, 0.7), /* Merah di kiri */
+        3px 0 0 rgba(0, 200, 255, 0.7); /* Biru di kanan */
+}/* === ELECTRIC PULSE ANIMATION === */
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 198, 255, 0.2); /* Redup */
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 198, 255, 0.8), /* Terang banget */
+                    0 0 10px var(--neon-yellow); /* Ada campuran kuning */
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 198, 255, 0.2); /* Redup lagi */
+    }
+}
+
+/* Terapkan ke kartu anggota & menu utama */
+.card-anggota, .explore-card {
+    /* Jalankan animasi 'pulse-glow' selamanya, durasi 3 detik */
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+/* PENTING: Karena lo udah pake animasi 'Levitation' (float-space) di .explore-card,
+   kita harus gabungin animasinya biar gak saling timpa.
+
+   HAPUS/GANTI kode .explore-card yang bagian animasi 'float-space' sebelumnya dengan ini:
+*/
+.explore-card {
+    /* Gabungan: float-space (gerak) + pulse-glow (cahaya) */
+    animation: float-space 4s ease-in-out infinite, pulse-glow 3s infinite ease-in-out;
+}/* === CINEMATIC LETTER SPACING === */
+
+h1, h2, h3, .explore-card h3 {
+    transition: letter-spacing 0.5s ease; /* Transisi halus */
+}
+
+/* Pas Di-Hover: Spasi huruf melebar */
+h1:hover, h2:hover, h3:hover, .explore-card:hover h3 {
+    letter-spacing: 4px; /* Jarak antar huruf jadi renggang */
+    cursor: default; /* Kursor tetap panah biasa */
+}/* === BIOMETRIC SCANNER LINE === */
+
+/* Pastikan container foto relatif biar garisnya gak lari keluar */
+.card-anggota, .avatar-circle {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Garis Scannernya */
+.card-anggota::after, .avatar-circle::after {
+    content: '';
+    position: absolute;
+    top: -10%; /* Mulai dari atas luar */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Ketebalan garis scan */
+    background: #00ffaa; /* Warna Hijau Hacker (bisa ganti Cyan) */
+    box-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa; /* Glow terang */
+    opacity: 0.8;
+    animation: scan-face 3s ease-in-out infinite; /* Gerak terus */
+    pointer-events: none;
+    z-index: 5; /* Pastikan di atas foto */
+}
+
+/* Animasi Gerak Turun */
+@keyframes scan-face {
+    0% {
+        top: -10%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1; /* Muncul pas masuk area */
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 110%; /* Bablas ke bawah */
+        opacity: 0;
+    }
+}/* === GLASSMORPHISM WITH NOISE === */
+
+.explore-card, .navbar, .glass-panel {
+    /* Efek Blur ke belakang */
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+
+    /* Warna semi transparan */
+    background: rgba(2, 27, 53, 0.7) !important;
+
+    /* Garis pinggir tipis */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Tekstur Noise (pake link gambar noise halus) */
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    background-repeat: repeat;
+    background-size: 200px;
+    opacity: 0.95;
+}/* === TERMINAL CORNER CUT (BENTUK KARTU MILITER) === */
+
+.explore-card, .card-anggota {
+    /* Memotong sudut: kiri atas, kanan atas (dipotong), kanan bawah, kiri bawah (dipotong) */
+    clip-path: polygon(
+        0% 0%,
+        85% 0%, 100% 15%,
+        100% 100%,
+        15% 100%, 0% 85%
+    );
+
+    /* Supaya konten gak kepentok sudut yang dipotong */
+    padding: 20px;
+    border: none !important; /* Clip-path biasanya motong border biasa */
+}
+
+/* Karena clip-path membuang border asli, kita kasih border buatan pake background-image */
+.explore-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, var(--primary-blue), var(--neon-yellow));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    padding: 2px; /* Ketebalan border */
+    pointer-events: none;
+}/* === ENERGY STATUS BAR === */
+
+.status-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 198, 255, 0.1);
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+/* Cahaya yang lari di dalam bar */
+.status-bar::after {
+    content: "";
+    position: absolute;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--neon-yellow), transparent);
+    animation: energy-flow 2s infinite linear;
+}
+
+@keyframes energy-flow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+/* === VIGNETTE HUD EFFECT === */
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradasi dari transparan di tengah ke hitam di pojok */
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none; /* Biar tetep bisa ngeklik tombol di bawahnya */
+    z-index: 9999; /* Pastikan di paling atas */
+}/* === FLOATING DIGITAL DUST === */
+
+html::before {
+    content: "";
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    /* Bikin banyak titik putih pake box-shadow */
+    box-shadow:
+        10vw 20vh 1px #fff, 35vw 45vh 1px #fff, 80vw 10vh 1px #fff,
+        20vw 80vh 1px #fff, 60vw 30vh 1px #fff, 90vw 90vh 1px #fff,
+        45vw 15vh 1px #fff, 15vw 60vh 1px #fff, 70vw 75vh 1px #fff;
+    opacity: 0.3;
+    animation: dust-move 100s linear infinite;
+    z-index: -2;
+}
+
+@keyframes dust-move {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100vh); }
+}/* === BREATHING NEON AURA === */
+
+.explore-card, .card-anggota {
+    /* Filter ini lebih halus dibanding box-shadow */
+    filter: drop-shadow(0 0 5px rgba(0, 198, 255, 0.3));
+    animation: aura-breathe 8s ease-in-out infinite;
+}
+
+@keyframes aura-breathe {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(0, 198, 255, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(0, 198, 255, 0.6));
+    }
+}/* === UI HOVER GLOW (SOROTAN KURSOR) === */
+
+/* Targetkan ke container utama lo */
+main, .container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bikin aura cahaya yang nempel di container */
+main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Cahaya radial yang ngikutin area hover */
+    background: radial-gradient(
+        600px circle at var(--x, 50%) var(--y, 50%),
+        rgba(0, 198, 255, 0.08),
+        transparent 40%
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Note: Karena ini Pure CSS, dia bakal default di tengah.
+Untuk bikin dia 100% ngikutin mouse secara presisi biasanya butuh 3 baris JS.
+Tapi kalau mau Pure CSS, ini bakal ngasih aura statis yang bikin konten lo "pop out".
+*//* === SIGNAL FOCUS TRACE (BINGKAI INPUT) === */
+
+/* Targetkan ke semua input dan textarea */
+input, textarea {
+    background: rgba(0, 198, 255, 0.05) !important;
+    border: 1px solid rgba(0, 198, 255, 0.3) !important;
+    color: white !important;
+    padding: 15px !important;
+    transition: all 0.3s ease-in-out;
+    outline: 2px solid transparent;
+    outline-offset: 10px; /* Mulai dari luar */
+}
+
+/* Pas Input diklik (Focus) */
+input:focus, textarea:focus {
+    border-color: var(--neon-yellow) !important;
+    outline-color: var(--neon-yellow);
+    outline-offset: 0; /* Garis outline "mencengkram" ke dalem */
+    background: rgba(0, 198, 255, 0.1) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.2);
+}/* === NEON TRANSMIT BUTTON === */
+
+.btn-submit, button[type="submit"] {
+    background: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 12px 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* Efek Hover: Tombol jadi penuh warna dan bergetar */
+.btn-submit:hover, button[type="submit"]:hover {
+    background: var(--primary-blue);
+    color: #000;
+    box-shadow: 0 0 30px var(--primary-blue);
+    animation: btn-vibrate 0.1s infinite;
+}
+
+@keyframes btn-vibrate {
+    0% { transform: translate(0); }
+    25% { transform: translate(1px, 1px); }
+    50% { transform: translate(-1px, -1px); }
+    75% { transform: translate(1px, -1px); }
+    100% { transform: translate(0); }
+}
+/* === THE MATRIX INVERSION (LAST TOUCH) === */
+
+/* Gue pake selector [id*="jadwal"], [class*="jadwal"], dan [class*="schedule"]
+   Ini otomatis nyari semua elemen yang ada kata 'jadwal' atau 'schedule' nya.
+*/
+
+[id*="jadwal"] div,
+[id*="schedule"] div,
+[class*="jadwal"] li,
+[class*="schedule"] li,
+.jadwal-item,
+.schedule-row {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    cursor: pointer;
+    overflow: visible !important;
+}
+
+/* EFEK NEGATIF + NEON GLOW */
+[id*="jadwal"] div:hover,
+[id*="schedule"] div:hover,
+[class*="jadwal"] li:hover,
+[class*="schedule"] li:hover,
+.jadwal-item:hover,
+.schedule-row:hover {
+    /* 1. Invert warna & geser hue ke arah Biru/Neon */
+    filter: invert(1) hue-rotate(180deg) brightness(1.1) contrast(1.2) !important;
+
+    /* 2. Kasih bayangan tebal di luar biar kelihatan 'melayang' */
+    box-shadow: 0 0 40px var(--primary-blue), 0 0 80px rgba(0, 198, 255, 0.2) !important;
+
+    /* 3. Efek angkat (3D Lift) */
+    transform: translateY(-5px) scale(1.02) !important;
+
+    /* 4. Paksa z-index biar di atas elemen lain */
+    z-index: 9999 !important;
+}
+
+/* Tambahan: Bikin teks di dalamnya makin tajam pas di-invert */
+[class*="jadwal"] li:hover *,
+[class*="schedule"] li:hover * {
+    text-shadow: 0.5px 0.5px 0px rgba(0,0,0,0.5);
+}

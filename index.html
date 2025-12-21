@@ -168,6 +168,180 @@
         }
     }
 </script>
+<div id="context-menu">
+    <ul>
+        <li onclick="history.back()">⬅ Back</li>
+        <li onclick="location.reload()">↻ Refresh System</li>
+        <hr>
+        <li onclick="window.print()">🖨 Print Data</li>
+        <li onclick="alert('Access Granted: Developer Mode')">⚡ Dev Mode</li>
+        <hr>
+        <li style="font-size:10px; opacity:0.5;">SixFormatix OS v1.0</li>
+    </ul>
+</div>
+
+<script>
+    const contextMenu = document.getElementById("context-menu");
+    const scope = document.querySelector("body");
+
+    // 1. Saat Klik Kanan -> Munculin Menu Kita
+    scope.addEventListener("contextmenu", (event) => {
+        event.preventDefault(); // Matikan menu bawaan browser
+
+        // Atur posisi menu di tempat mouse
+        const { clientX: mouseX, clientY: mouseY } = event;
+
+        contextMenu.style.top = `${mouseY}px`;
+        contextMenu.style.left = `${mouseX}px`;
+        contextMenu.style.display = "block";
+    });
+
+    // 2. Saat Klik Kiri di mana aja -> Tutup Menu
+    scope.addEventListener("click", (e) => {
+        if (e.target.offsetParent != contextMenu) {
+            contextMenu.style.display = "none";
+        }
+    });
+</script>
+<style>
+    /* CSS kecil buat jejaknya */
+    .circle-trail {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: var(--primary-blue); /* Biru Cyber */
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s;
+        box-shadow: 0 0 10px var(--primary-blue);
+        z-index: 9999;
+    }
+</style>
+
+<script>
+    // Logic Jejak Kursor
+    document.addEventListener('mousemove', function(e) {
+        let circle = document.createElement('div');
+        circle.setAttribute('class', 'circle-trail');
+        document.body.appendChild(circle);
+
+        // Posisi ikut mouse
+        circle.style.left = e.pageX + 'px';
+        circle.style.top = e.pageY + 'px';
+
+        // Warna acak dikit biar keren (Biru ke Kuning)
+        circle.style.borderColor = Math.random() > 0.5 ? '#00c6ff' : '#ffee00';
+
+        // Animasi hilang
+        circle.style.transition = "all 0.5s linear 0s";
+        circle.style.left = circle.offsetLeft - 20 + 'px';
+        circle.style.top = circle.offsetTop - 20 + 'px';
+        circle.style.width = "0px";
+        circle.style.height = "0px";
+        circle.style.opacity = 0;
+
+        // Hapus elemen setelah animasi selesai biar ga berat
+        setTimeout(function() {
+            circle.remove();
+        }, 500);
+    });
+</script>
+<div id="cyber-toast" style="
+    position: fixed;
+    top: 20px;
+    right: -300px; /* Sembunyi di kanan */
+    background: rgba(0, 20, 40, 0.9);
+    border-left: 4px solid #00c6ff;
+    padding: 15px 25px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    z-index: 10000;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+">
+    <span style="font-size:20px">✅</span>
+    <div>
+        <div style="font-size:12px; opacity:0.7">SYSTEM STATUS</div>
+        <div style="font-size:14px; font-weight:bold; color:#00c6ff">ONLINE & SECURE</div>
+    </div>
+</div>
+
+<script>
+    // Munculin notifikasi pas web dibuka
+    window.onload = function() {
+        setTimeout(() => {
+            let toast = document.getElementById('cyber-toast');
+            toast.style.right = "20px"; // Geser masuk
+
+            // Suara "Ting" (Opsional, pake suara browser default)
+            let audio = new Audio('https://www.soundjay.com/buttons/beep-01a.mp3');
+            audio.volume = 0.2;
+            audio.play().catch(e => console.log("Audio butuh interaksi user dulu"));
+
+            // Hilang lagi setelah 4 detik
+            setTimeout(() => {
+                toast.style.right = "-300px";
+            }, 4000);
+        }, 1000); // Delay 1 detik setelah loading
+    }
+    <div id="recon-panel" style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #00ff00;
+    padding: 10px 15px;
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    font-size: 11px;
+    border-radius: 5px;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    display: none; /* Sembunyi dulu biar gak numpuk pas loading */
+">
+    <div style="border-bottom: 1px solid #00ff00; margin-bottom: 5px; padding-bottom:2px;">
+        [ TARGET SYSTEM DETECTED ]
+    </div>
+    <div id="os-info">Scanning OS...</div>
+    <div id="browser-info">Scanning Browser...</div>
+    <div id="res-info">Calibrating Resolution...</div>
+</div>
+
+<script>
+    // Muncul setelah 3 detik (biar gak barengan sama Boot Screen)
+    setTimeout(() => {
+        const panel = document.getElementById('recon-panel');
+        panel.style.display = 'block';
+
+        // 1. Cek OS
+        let os = "Unknown OS";
+        if (navigator.userAgent.indexOf("Win") != -1) os = "Windows NT System";
+        if (navigator.userAgent.indexOf("Mac") != -1) os = "Macintosh System";
+        if (navigator.userAgent.indexOf("Linux") != -1) os = "Linux Kernel";
+        if (navigator.userAgent.indexOf("Android") != -1) os = "Android System";
+        if (navigator.userAgent.indexOf("iPhone") != -1) os = "iOS Device";
+
+        // 2. Cek Browser
+        let browser = "Unknown Agent";
+        if(navigator.userAgent.indexOf("Chrome") != -1 ) browser = "Chrome Browser";
+        if(navigator.userAgent.indexOf("Firefox") != -1 ) browser = "Firefox Developer";
+
+        // 3. Cek Resolusi
+        let res = window.screen.width + "x" + window.screen.height;
+
+        // Tampilkan
+        document.getElementById("os-info").innerText = "> OS: " + os;
+        document.getElementById("browser-info").innerText = "> AGENT: " + browser;
+        document.getElementById("res-info").innerText = "> RES: " + res;
+    }, 3000);
+</script>
+</script>
 
 </body>
 </html>
