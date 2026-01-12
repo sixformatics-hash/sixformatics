@@ -980,3 +980,55 @@ input:focus, textarea:focus {
     color: var(--neon-yellow);
     text-shadow: 0 0 10px var(--neon-yellow);
 }
+
+.foto-kelas {
+    width: 100%;
+    max-width: 900px;
+    display: block;
+    margin: 30px auto;
+    border-radius: 15px;
+}
+/* =========================================
+   PERFORMA BOOSTER (ANTI LAG HP)
+   ========================================= */
+
+/* 1. Paksa browser pakai GPU untuk kartu (Hardware Acceleration) */
+.card-anggota, .leader-card, .explore-card {
+    will-change: transform, opacity; /* Memberitahu browser untuk siap-siap */
+    transform: translateZ(0); /* Hack untuk memicu GPU mode */
+}
+
+/* 2. Optimasi Khusus Layar Kecil (HP) */
+@media (max-width: 768px) {
+
+    /* Background fixed bikin lag di HP, ubah jadi scroll biasa (Tampilan tetep sama) */
+    body {
+        background-attachment: scroll !important;
+    }
+
+    /* Kurangi beban blur pada kartu, tapi tetap transparan */
+    .card-anggota, .glass-container, .navbar {
+        backdrop-filter: blur(5px) !important; /* Blur dikurangi sedikit biar ringan */
+        -webkit-backdrop-filter: blur(5px) !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important; /* Shadow lebih simpel */
+    }
+
+    /* Matikan animasi berat yang jalan terus menerus (looping) di HP */
+    /* Efek glow tetap ada, tapi statis (tidak kedap-kedip) biar baterai & ram aman */
+    .card-anggota {
+        animation: none !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    /* Efek sentuh di HP (karena tidak ada hover mouse) */
+    .card-anggota:active {
+        transform: scale(0.95) !important;
+        box-shadow: 0 0 20px var(--neon-yellow) !important;
+        border-color: var(--neon-yellow) !important;
+    }
+
+    /* Matikan partikel debu melayang (sangat berat di HP) */
+    html::before {
+        display: none !important;
+    }
+}

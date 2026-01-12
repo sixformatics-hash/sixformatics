@@ -412,15 +412,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
 
 <script>
-    // Targetkan ke semua elemen dengan class "card-anggota"
-    VanillaTilt.init(document.querySelectorAll(".card-anggota"), {
-        max: 15,          /* Derajat kemiringan (makin gede makin miring) */
-        speed: 400,       /* Kecepatan gerak */
-        glare: true,      /* Efek kilauan cahaya (Hologram) */
-        "max-glare": 0.3, /* Seberapa terang kilaunya (0 - 1) */
-        scale: 1.05,      /* Zoom dikit pas di-hover biar nonjol */
-        perspective: 1000 /* Jarak pandang 3D */
-    });
+    // Cek lebar layar. Jika di atas 768px (Laptop/PC), baru aktifkan efek 3D Tilt
+    if (window.matchMedia("(min-width: 769px)").matches) {
+        VanillaTilt.init(document.querySelectorAll(".card-anggota"), {
+            max: 15,          /* Derajat kemiringan */
+            speed: 400,       /* Kecepatan gerak */
+            glare: true,      /* Efek kilauan cahaya */
+            "max-glare": 0.3, /* Terang kilauan */
+            scale: 1.05,      /* Zoom dikit */
+            perspective: 1000 /* Jarak pandang 3D */
+        });
+    }
 </script>
 
 </body>
