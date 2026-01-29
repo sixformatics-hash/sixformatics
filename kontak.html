@@ -5,142 +5,61 @@
     <title>SixFormatix | Kontak</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
     <style>
         .kontak-container { text-align: center; padding: 40px 20px; }
         .kontak-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
         .contact-card { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 20px; width: 280px; transition: 0.3s; text-decoration: none; display: block; }
         .contact-card:hover { border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 238, 0, 0.3); transform: translateY(-5px); }
         .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
-        .contact-label { font-family: 'Orbitron', sans-serif; color: var(--primary-blue); display: block; margin-bottom: 5px; }
-        .contact-value { color: white; font-weight: bold; }
-        .alamat-area { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .contact-label { font-family: 'Orbitron', sans-serif; color: var(--primary-blue); font-weight: bold; margin-bottom: 5px; }
+        .contact-value { color: #fff; }
+        
+        .lokasi-section { margin-top: 60px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.2); }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="logo-area">
-        <img src="logo.jpg" class="logo-img">
-        <span class="logo-text">SixFormatix</span>
+    <nav class="navbar">
+        <div class="logo-area">
+            <img src="logo.jpg" class="logo-img">
+            <span class="logo-text">SixFormatix</span>
+        </div>
+       <ul class="menu">
+    <li><a href="index.html" class="active">Home</a></li> <li><a href="tentang.html">Tentang</a></li>
+    <li><a href="anggota.html">Anggota</a></li>
+    <li><a href="jadwal.html">Jadwal</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="menfess.html">Menfess</a></li> <li><a href="kontak.html">Kontak</a></li>
+</ul>
+    </nav>
+
+    <div class="glass-container kontak-container">
+        <h2 style="font-family: 'Orbitron'; color: var(--neon-yellow);">HUBUNGI KAMI</h2>
+        <p style="color: #bbb;">Terbuka untuk kolaborasi dan koneksi baru.</p>
+
+        <div class="kontak-grid">
+            <a href="https://instagram.com/sixformatics" target="_blank" class="contact-card">
+                <div class="card-icon">📸</div>
+                <div class="contact-label">INSTAGRAM</div>
+                <div class="contact-value">@sixformatics</div>
+            </a>
+            
+            <a href="mailto:sixformatics@gmail.com" class="contact-card">
+                <div class="card-icon">📩</div>
+                <div class="contact-label">EMAIL</div>
+                <div class="contact-value">sixformatics@gmail.com</div>
+            </a>
+        </div>
+
+        <div class="lokasi-section">
+            <h3 style="color:var(--neon-yellow); font-family:'Orbitron'; margin-bottom:15px;">LOKASI BASECAMP</h3>
+            <p><strong>UNIVERSITAS KOMPUTER INDONESIA</strong></p>
+            <p style="color:#aaa;">Jl. Dipati Ukur No.112-116, Lebakgede,<br>Kota Bandung, Jawa Barat 40132</p>
+        </div>
     </div>
-    <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tentang.html">Tentang</a></li>
-        <li><a href="anggota.html">Anggota</a></li>
-        <li><a href="jadwal.html">Jadwal</a></li>
-        <li><a href="archive.html">Archive</a></li> <li><a href="kontak.html">Kontak</a></li>
-    </ul>
-</nav>
 
-<div class="glass-container kontak-container">
-    <h2 style="color: var(--neon-yellow);">HUBUNGI KAMI</h2>
-    <p style="color: #e0e0e0;">Jaringan kami selalu terbuka untuk koneksi baru.</p>
-
-    <div class="kontak-grid">
-        <a href="https://instagram.com/sixformatics" target="_blank" class="contact-card">
-            <div class="card-icon">📸</div>
-            <span class="contact-label">INSTAGRAM</span>
-            <span class="contact-value">@sixformatics</span>
-        </a>
-        <a href="mailto:sixformatics@gmail.com" class="contact-card">
-            <div class="card-icon">📩</div>
-            <span class="contact-label">EMAIL</span>
-            <span class="contact-value">sixformatics@gmail.com</span>
-        </a>
-    </div>
-
-    <div class="alamat-area">
-        <p style="font-size: 0.8rem; letter-spacing: 2px; opacity: 0.7;">LOKASI BASECAMP:</p>
-        <h3 style="color: var(--primary-blue); margin: 10px 0;">UNIVERSITAS KOMPUTER INDONESIA</h3>
-        <p style="max-width: 500px; margin: 0 auto; line-height: 1.6;">
-            Jl. Dipati Ukur No.112-116, Lebakgede, Kecamatan Coblong,<br>
-            Kota Bandung, Jawa Barat 40132
-        </p>
-    </div>
-    <form id="menfessForm" class="menfess-container">
-  <h3>Menfess</h3>
-  <input type="text" id="nama" placeholder="Nama (boleh anonim)">
-  <textarea id="pesan" placeholder="Tulis menfess kamu..." rows="3"></textarea>
-  <button type="submit">Kirim</button>
-  <p id="status-menfess"></p>
-</form>
-</div>
-
-<footer>© 2025 SixFormatix System</footer>
-
-<script>
-    // JAM DIGITAL
-    function updateClock() {
-        const now = new Date();
-        const time = now.toLocaleTimeString('id-ID', { hour12: false });
-        const el = document.getElementById('jam');
-        if(el) el.innerText = time;
-    }
-    setInterval(updateClock, 1000); updateClock();
-    
-</script>
-<script type="module">
-  // 1. Import library dari internet (Versi Web/CDN)
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
-  // 2. Config Firebase Kamu (Data Asli)
-  const firebaseConfig = {
-    apiKey: "AIzaSyBYqI_Me1MbpqsuSYqyDvndE8Ny5kffC4M",
-    authDomain: "menfess-633ae.firebaseapp.com",
-    projectId: "menfess-633ae",
-    storageBucket: "menfess-633ae.firebasestorage.app",
-    messagingSenderId: "100601347273",
-    appId: "1:100601347273:web:bf9a462db4958681546118"
-  };
-
-  // 3. Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  // 4. Logic Form Menfess
-  const form = document.getElementById("menfessForm");
-  const statusText = document.getElementById("status-menfess");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Biar halaman gak refresh sendiri
-
-    const nama = document.getElementById("nama").value;
-    const pesan = document.getElementById("pesan").value;
-
-    // Cek kalau pesan kosong
-    if (pesan === "") {
-      statusText.innerText = "Pesan tidak boleh kosong!";
-      statusText.style.color = "red";
-      return;
-    }
-
-    statusText.innerText = "Sedang mengirim..."; // Kasih feedback loading
-
-    try {
-      // Kirim data ke database (Collection: menfess)
-      await addDoc(collection(db, "menfess"), {
-        nama: nama || "Anonim", // Kalau nama kosong, isi 'Anonim'
-        pesan: pesan,
-        waktu: serverTimestamp() // Catat waktu server
-      });
-
-      statusText.innerText = "✅ Menfess terkirim!";
-      statusText.style.color = "#00ffea"; // Warna neon cyan biar keren
-      form.reset(); // Kosongin form lagi
-      
-      // Hilangkan pesan sukses setelah 3 detik
-      setTimeout(() => {
-          statusText.innerText = "";
-      }, 3000);
-
-    } catch (error) {
-      console.error("Error:", error);
-      statusText.innerText = "❌ Gagal mengirim. Cek Permission/Koneksi.";
-      statusText.style.color = "red";
-    }
-  });
-</script>
+    <footer>© 2025 SixFormatix System</footer>
 
 </body>
 </html>

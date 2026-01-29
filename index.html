@@ -64,13 +64,12 @@
         <span class="logo-text">SixFormatix</span>
     </div>
     <ul class="menu">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tentang.html">Tentang</a></li>
+    <li><a href="index.html" class="active">Home</a></li> <li><a href="tentang.html">Tentang</a></li>
     <li><a href="anggota.html">Anggota</a></li>
     <li><a href="jadwal.html">Jadwal</a></li>
-    <li><a href="archive.html">Archive</a></li> <li><a href="kontak.html">Kontak</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="menfess.html">Menfess</a></li> <li><a href="kontak.html">Kontak</a></li>
 </ul>
-    </ul>
 </nav>
 
 <div class="glass-container" style="min-height: 70vh; display: flex; flex-direction: column; justify-content: center;">
@@ -100,6 +99,12 @@
             <span class="card-icon">📂</span>
             <span class="card-title">ABOUT</span>
             <div class="card-desc">Informasi Sistem</div>
+        </a>
+
+        <a href="menfess.html" class="explore-card">
+            <span class="card-icon">📢</span>
+            <span class="card-title">MENFESS</span>
+            <div class="card-desc">Kirim Pesan Rahasia</div>
         </a>
 
         <a href="kontak.html" class="explore-card">
@@ -168,6 +173,7 @@
         }
     }
 </script>
+
 <div id="context-menu">
     <ul>
         <li onclick="history.back()">⬅ Back</li>
@@ -203,6 +209,7 @@
         }
     });
 </script>
+
 <style>
     /* CSS kecil buat jejaknya */
     .circle-trail {
@@ -247,6 +254,7 @@
         }, 500);
     });
 </script>
+
 <div id="cyber-toast" style="
     position: fixed;
     top: 20px;
@@ -289,7 +297,9 @@
             }, 4000);
         }, 1000); // Delay 1 detik setelah loading
     }
-    <div id="recon-panel" style="
+</script>
+
+<div id="recon-panel" style="
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -340,7 +350,6 @@
         document.getElementById("browser-info").innerText = "> AGENT: " + browser;
         document.getElementById("res-info").innerText = "> RES: " + res;
     }, 3000);
-</script>
 </script>
 
 </body>
