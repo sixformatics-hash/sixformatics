@@ -57,6 +57,14 @@
             Kota Bandung, Jawa Barat 40132
         </p>
     </div>
+    <div class="menfess-container">
+  <h3>Menfess</h3>
+  <input type="text" id="nama" placeholder="Nama (boleh anonim)">
+  <textarea id="pesan" placeholder="Tulis menfess kamu..." rows="3"></textarea>
+  <button onclick="kirimMenfess()">Kirim</button>
+  <p id="status-menfess"></p>
+</div>
+
 </div>
 
 <footer>© 2025 SixFormatix System</footer>
@@ -70,6 +78,52 @@
         if(el) el.innerText = time;
     }
     setInterval(updateClock, 1000); updateClock();
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "ISI_APIKEY_KAMU",
+    authDomain: "PROJECT_ID.firebaseapp.com",
+    projectId: "PROJECT_ID",
+    storageBucket: "PROJECT_ID.appspot.com",
+    messagingSenderId: "ID",
+    appId: "APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.kirimMenfess = async function () {
+    const nama = document.getElementById("nama").value;
+    const pesan = document.getElementById("pesan").value;
+    const status = document.getElementById("status-menfess");
+
+    if (pesan === "") {
+      status.innerText = "Pesan tidak boleh kosong!";
+      status.style.color = "red";
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "menfess"), {
+        nama: nama || "Anonim",
+        pesan: pesan,
+        waktu: new Date()
+      });
+
+      status.innerText = "Menfess terkirim!";
+      status.style.color = "green";
+
+      document.getElementById("nama").value = "";
+      document.getElementById("pesan").value = "";
+
+    } catch (error) {
+      status.innerText = "Gagal mengirim menfess.";
+      status.style.color = "red";
+    }
+  }
 </script>
 
 </body>

@@ -1032,3 +1032,11 @@ input:focus, textarea:focus {
         display: none !important;
     }
 }
+.menfess-container {
+  margin-top: 15px;
+}
+.menfess-container input,
+.menfess-container textarea {
+  width: 100%;
+  margin-bottom: 8px;
+}
