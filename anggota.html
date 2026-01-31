@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>SixFormatix | Anggota</title>
+    <title>SixFormatics | Anggota</title>
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -159,7 +159,7 @@
 <nav class="navbar">
     <div class="logo-area">
         <img src="logo.jpg" class="logo-img">
-        <span class="logo-text">SixFormatix</span>
+        <span class="logo-text">SixFormatics</span>
     </div>
     <ul class="menu">
     <li><a href="index.html" class="active">Home</a></li> <li><a href="tentang.html">Tentang</a></li>
@@ -176,21 +176,55 @@
         <h2 class="section-title">Class Leaders</h2>
         <p style="color: #ccc; margin-bottom: 30px;">Pengurus Inti IF-6</p>
 
-        <div class="leaders-area">
-            <div class="leader-card">
-                <span class="role-badge">KETUA KELAS</span>
-                <div class="avatar-circle" style="margin: 0 auto 15px auto; width: 80px; height: 80px; font-size: 1.5rem;">AF</div>
-                <div class="name-text" style="font-size: 1.2rem;">Ahmad Fitroh Annur S</div>
-                <div class="nim-text">System Administrator</div>
-            </div>
+        <div class="leaders-grid" style="display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap;">
 
-            <div class="leader-card">
-                <span class="role-badge" style="background: #ccc;">WAKIL KETUA</span>
-                <div class="avatar-circle" style="margin: 0 auto 15px auto; width: 80px; height: 80px; font-size: 1.5rem; background: linear-gradient(135deg, #888, #555);">TM</div>
-                <div class="name-text" style="font-size: 1.2rem;">Thomas Mardiana Pasha</div>
-                <div class="nim-text">Co-Administrator</div>
-            </div>
+   <div class="leaders-grid" style="display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap;">
+
+    <div class="leaders-grid" style="display: flex; justify-content: center; gap: 30px; margin-bottom: 50px; flex-wrap: wrap;">
+
+    <div class="card-anggota" onclick="bukaModalAhmad()" 
+         style="border: 2px solid var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 238, 0, 0.2); transform: scale(1.05); cursor: pointer;">
+        
+        <div class="avatar-circle" style="border-color: var(--neon-yellow); background: rgba(255, 238, 0, 0.05); display: flex; justify-content: center; align-items: center;">
+            <span style="font-size: 32px; font-weight: 900; color: var(--neon-yellow); text-shadow: 0 0 15px var(--neon-yellow); font-family: 'Orbitron', sans-serif;">
+                AF
+            </span>
         </div>
+        
+        <div class="card-info">
+            <h3 style="color: var(--neon-yellow); text-shadow: 0 0 10px rgba(255, 238, 0, 0.5);">
+                Ahmad Fitroh A.S
+            </h3>
+            <span class="badge" style="background: var(--neon-yellow); color: #000; padding: 5px 20px; font-weight: 800; letter-spacing: 2px; box-shadow: 0 0 15px var(--neon-yellow);">
+                KETUA
+            </span>
+        </div>
+    </div>
+
+    <div class="card-anggota" 
+         style="border: 2px solid var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 238, 0, 0.2); transform: scale(1.05);">
+        
+        <div class="avatar-circle" style="border-color: var(--neon-yellow); background: rgba(255, 238, 0, 0.05); display: flex; justify-content: center; align-items: center;">
+            <span style="font-size: 32px; font-weight: 900; color: var(--neon-yellow); text-shadow: 0 0 15px var(--neon-yellow); font-family: 'Orbitron', sans-serif;">
+                TM
+            </span>
+        </div>
+        
+        <div class="card-info">
+            <h3 style="color: var(--neon-yellow); text-shadow: 0 0 10px rgba(255, 238, 0, 0.5);">
+                Thomas Mardiana
+            </h3>
+            <span class="badge" style="background: var(--neon-yellow); color: #000; padding: 5px 20px; font-weight: 800; letter-spacing: 2px; box-shadow: 0 0 15px var(--neon-yellow);">
+                WAKIL
+            </span>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+</div>
 
         <div class="siswa-area">
             <h2 class="section-title" style="font-size: 1.5rem;">All Members</h2>
@@ -398,7 +432,7 @@
     </div>
 </div>
 
-<footer>© 2025 SixFormatix System</footer>
+<footer>© 2026 SixFormatics System</footer>
 
 <script>
     function updateClock() {
@@ -424,6 +458,99 @@
         });
     }
 </script>
+<div id="modalAhmad" class="modal-overlay" onclick="tutupModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+        <span class="close-silang" onclick="tutupModal()">&times;</span>
+        <h2 style="color: var(--primary-blue); margin-bottom: 5px;">Ahmad Fitroh Annur Sholeh</h2>
+        <span class="badge" style="background: var(--deep-blue); padding: 5px 10px; border-radius: 5px; font-size: 12px;">Leaders</span><span class="badge" style="background: var(--neon-yellow); color: #000; padding: 5px 15px; border-radius: 5px; font-weight: bold; box-shadow: 0 0 15px var(--neon-yellow); letter-spacing: 1px;">
+    LEADERS
+</span>
+        
+        <hr style="border: 0; border-top: 1px solid #333; margin: 15px 0;">
+        
+        <p style="color: #ddd; line-height: 1.6; font-size: 14px;">
+            "Tumbuh dan ditempa di bawah langit yang sama, Rancaekek. Dari seragam merah-putih hingga putih-abu, perjalanan ini mengajarkan bahwa dunia tidak perlu dikelilingi untuk dimengerti.
 
+Sosok yang memilih tidak banyak bicara tentang diri sendiri, karena percaya bahwa esensi seseorang bukan pada apa yang ia pamerkan, tapi pada jejak yang ia tinggalkan dalam diam.
+
+Selamanya... Sampai kita tua, sampai jadi debu."
+        </p>
+    </div>
+</div>
+
+<div id="hackerMenu" class="context-menu" style="display: none;">
+    <div class="menu-header">NAVIGATION_MODULE</div>
+    <ul>
+        <li onclick="window.location.href='index.html'">
+            > HOME_DASHBOARD
+        </li>
+
+        <li onclick="window.location.href='anggota.html'">
+            > MEMBER_DATABASE
+        </li>
+
+        <li onclick="window.location.href='archive.html'">
+            > VISUAL_LOGS (GALLERY)
+        </li>
+
+        <li onclick="window.location.href='tentang.html'">
+            > SYSTEM_INFO
+        </li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+
+    <div class="menu-header">SYSTEM_COMMANDS</div>
+    <ul>
+        <li onclick="history.back()">> BACK_STEP</li>
+        <li onclick="location.reload()">> REFRESH_SYSTEM (F5)</li>
+        <li onclick="window.scrollTo(0,0)">> JUMP_TO_TOP</li>
+        
+        <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+        
+        <li onclick="shutdownEffect()" style="color: #ff3333; font-weight: bold;">
+            > EMERGENCY_SHUTDOWN
+        </li>
+    </ul>
+</div>
+
+<script>
+    // 1. Munculin Menu Pas Klik Kanan
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault(); 
+        const menu = document.getElementById('hackerMenu');
+        menu.style.display = 'block';
+        menu.style.left = e.pageX + 'px';
+        menu.style.top = e.pageY + 'px';
+    });
+
+    // 2. Ilangin Menu Pas Klik Kiri
+    document.addEventListener('click', function() {
+        document.getElementById('hackerMenu').style.display = 'none';
+    });
+
+    // 3. Efek Shutdown Keren
+    function shutdownEffect() {
+        const cover = document.createElement('div');
+        cover.style.position = 'fixed';
+        cover.style.top = '0'; cover.style.left = '0';
+        cover.style.width = '100vw'; cover.style.height = '100vh';
+        cover.style.backgroundColor = 'black';
+        cover.style.zIndex = '99999';
+        cover.style.transition = 'height 0.2s ease-in-out';
+        cover.style.height = '0vh'; 
+        document.body.appendChild(cover);
+
+        setTimeout(() => {
+            cover.style.height = '100vh'; 
+            cover.style.borderBottom = '5px solid white';
+        }, 100);
+
+        setTimeout(() => {
+            alert("⚠️ SYSTEM DISCONNECTED.");
+            window.location.href = "about:blank"; 
+        }, 1500);
+    }
+</script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>SixFormatix | Jadwal</title>
+    <title>SixFormatics | Jadwal</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* WRAPPER AGAR KONTEN DI TENGAH */
@@ -90,7 +90,7 @@
 <nav class="navbar">
     <div class="logo-area">
         <img src="logo.jpg" class="logo-img">
-        <span class="logo-text">SixFormatix</span>
+        <span class="logo-text">SixFormatics</span>
     </div>
     <ul class="menu">
     <li><a href="index.html" class="active">Home</a></li> <li><a href="tentang.html">Tentang</a></li>
@@ -186,7 +186,7 @@
     </div>
 </div>
 
-<footer>© 2025 SixFormatix System</footer>
+<footer>© 2026 SixFormatics System</footer>
 
 <script>
     function updateClock() {
@@ -197,6 +197,97 @@
     }
     setInterval(updateClock, 1000); updateClock();
 </script>
+<div id="hackerMenu" class="context-menu" style="display: none;">
+    <div class="menu-header">COMMAND LIST_</div>
+    <ul>
+        <li onclick="window.location.href='index.html'">> GOTO_HOMEBASE</li>
+        <li onclick="window.location.href='anggota.html'">> ACCESS_MEMBER_DATA</li>
+        
+        <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+        
+        <li onclick="history.back()">> SYSTEM_BACK</li>
+        <li onclick="location.reload()">> SYSTEM_REFRESH (F5)</li>
+        <li onclick="window.scrollTo(0,0)">> JUMP_TO_TOP</li>
+        
+        <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+        
+        <li onclick="shutdownEffect()" style="color: red;">> SYSTEM_SHUTDOWN</li>
+    </ul>
+</div>
 
+<div id="hackerMenu" class="context-menu" style="display: none;">
+    <div class="menu-header">NAVIGATION_MODULE</div>
+    <ul>
+        <li onclick="window.location.href='index.html'">
+            > HOME_DASHBOARD
+        </li>
+
+        <li onclick="window.location.href='anggota.html'">
+            > MEMBER_DATABASE
+        </li>
+
+        <li onclick="window.location.href='archive.html'">
+            > VISUAL_LOGS (GALLERY)
+        </li>
+
+        <li onclick="window.location.href='tentang.html'">
+            > SYSTEM_INFO
+        </li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+
+    <div class="menu-header">SYSTEM_COMMANDS</div>
+    <ul>
+        <li onclick="history.back()">> BACK_STEP</li>
+        <li onclick="location.reload()">> REFRESH_SYSTEM (F5)</li>
+        <li onclick="window.scrollTo(0,0)">> JUMP_TO_TOP</li>
+        
+        <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+        
+        <li onclick="shutdownEffect()" style="color: #ff3333; font-weight: bold;">
+            > EMERGENCY_SHUTDOWN
+        </li>
+    </ul>
+</div>
+
+<script>
+    // 1. Munculin Menu Pas Klik Kanan
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault(); 
+        const menu = document.getElementById('hackerMenu');
+        menu.style.display = 'block';
+        menu.style.left = e.pageX + 'px';
+        menu.style.top = e.pageY + 'px';
+    });
+
+    // 2. Ilangin Menu Pas Klik Kiri
+    document.addEventListener('click', function() {
+        document.getElementById('hackerMenu').style.display = 'none';
+    });
+
+    // 3. Efek Shutdown Keren
+    function shutdownEffect() {
+        const cover = document.createElement('div');
+        cover.style.position = 'fixed';
+        cover.style.top = '0'; cover.style.left = '0';
+        cover.style.width = '100vw'; cover.style.height = '100vh';
+        cover.style.backgroundColor = 'black';
+        cover.style.zIndex = '99999';
+        cover.style.transition = 'height 0.2s ease-in-out';
+        cover.style.height = '0vh'; 
+        document.body.appendChild(cover);
+
+        setTimeout(() => {
+            cover.style.height = '100vh'; 
+            cover.style.borderBottom = '5px solid white';
+        }, 100);
+
+        setTimeout(() => {
+            alert("⚠️ SYSTEM DISCONNECTED.");
+            window.location.href = "about:blank"; 
+        }, 1500);
+    }
+</script>
 </body>
 </html>

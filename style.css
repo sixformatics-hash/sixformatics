@@ -634,21 +634,7 @@ h1:hover, h2:hover, h3:hover, .explore-card:hover h3 {
     overflow: hidden;
 }
 
-/* Garis Scannernya */
-.card-anggota::after, .avatar-circle::after {
-    content: '';
-    position: absolute;
-    top: -10%; /* Mulai dari atas luar */
-    left: 0;
-    width: 100%;
-    height: 2px; /* Ketebalan garis scan */
-    background: #00ffaa; /* Warna Hijau Hacker (bisa ganti Cyan) */
-    box-shadow: 0 0 10px #00ffaa, 0 0 20px #00ffaa; /* Glow terang */
-    opacity: 0.8;
-    animation: scan-face 3s ease-in-out infinite; /* Gerak terus */
-    pointer-events: none;
-    z-index: 5; /* Pastikan di atas foto */
-}
+
 
 /* Animasi Gerak Turun */
 @keyframes scan-face {
@@ -1039,4 +1025,93 @@ input:focus, textarea:focus {
 .menfess-container textarea {
   width: 100%;
   margin-bottom: 8px;
+}
+/* === POPUP MODAL STYLE (TARUH PALING BAWAH) === */
+.modal-overlay {
+    display: none; /* Default sembunyi */
+    position: fixed;
+    z-index: 9999; /* Pastikan di atas segalanya */
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Background gelap */
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: #021B35;
+    border: 1px solid var(--primary-blue);
+    padding: 30px;
+    width: 90%; max-width: 600px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 198, 255, 0.3);
+    text-align: center;
+    animation: zoomIn 0.3s ease;
+}
+
+.close-silang {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.modal-foto {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-blue);
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Animasi Muncul */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* === CUSTOM RIGHT CLICK MENU === */
+.context-menu {
+    display: none; /* Sembunyi dulu */
+    position: absolute;
+    z-index: 10000;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid var(--primary-blue);
+    box-shadow: 0 0 15px var(--primary-blue);
+    backdrop-filter: blur(5px);
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+}
+
+.context-menu .menu-header {
+    background: var(--primary-blue);
+    color: #000;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.context-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.context-menu ul li {
+    padding: 8px 15px;
+    color: var(--text-white);
+    cursor: pointer;
+    font-size: 11px;
+    transition: 0.2s;
+    border-left: 2px solid transparent;
+}
+
+.context-menu ul li:hover {
+    background: rgba(0, 198, 255, 0.1);
+    color: var(--primary-blue);
+    border-left: 2px solid var(--primary-blue);
+    padding-left: 20px; /* Geser dikit pas hover */
 }

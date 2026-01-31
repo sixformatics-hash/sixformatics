@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>SixFormatix | Home</title>
+    <title>sixformatics | Home</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* TAMBAHAN CSS KHUSUS EXPLORE SYSTEM (MODEL KARTU) */
@@ -61,7 +61,7 @@
 <nav class="navbar">
     <div class="logo-area">
         <img src="logo.jpg" class="logo-img">
-        <span class="logo-text">SixFormatix</span>
+        <span class="logo-text">SixFormatics</span>
     </div>
     <ul class="menu">
     <li><a href="index.html" class="active">Home</a></li> <li><a href="tentang.html">Tentang</a></li>
@@ -115,11 +115,11 @@
     </div>
 </div>
 
-<footer>© 2025 SixFormatix System</footer>
+<footer>© 2026 SixFormatics System</footer>
 
 <div class="music-widget">
     <div class="music-disc" id="musicIcon">💿</div>
-    <div class="song-title">SixFormatix Vibe</div>
+    <div class="song-title">SixFormatics Vibe</div>
     <button class="play-btn" onclick="toggleMusic()" id="playBtn">▶</button>
     <audio id="audioPlayer" loop>
         <source src="lagu.mp3" type="audio/mp3">
@@ -138,7 +138,7 @@
 
     // 2. SCRIPT TYPING TEXT
     const textElement = document.querySelector(".typing-text");
-    const texts = ["SixFormatix", "Innovators", "Family"];
+    const texts = ["SixFormatics", "Innovators", "Family"];
     let count = 0, index = 0, currentText = "", letter = "";
 
     (function type() {
@@ -182,7 +182,7 @@
         <li onclick="window.print()">🖨 Print Data</li>
         <li onclick="alert('Access Granted: Developer Mode')">⚡ Dev Mode</li>
         <hr>
-        <li style="font-size:10px; opacity:0.5;">SixFormatix OS v1.0</li>
+        <li style="font-size:10px; opacity:0.5;">SixFormatics OS v1.0</li>
     </ul>
 </div>
 
@@ -351,6 +351,79 @@
         document.getElementById("res-info").innerText = "> RES: " + res;
     }, 3000);
 </script>
+<div id="hackerMenu" class="context-menu" style="display: none;">
+    <div class="menu-header">NAVIGATION_MODULE</div>
+    <ul>
+        <li onclick="window.location.href='index.html'">
+            > HOME_DASHBOARD
+        </li>
 
+        <li onclick="window.location.href='anggota.html'">
+            > MEMBER_DATABASE
+        </li>
+
+        <li onclick="window.location.href='archive.html'">
+            > VISUAL_LOGS (GALLERY)
+        </li>
+
+        <li onclick="window.location.href='tentang.html'">
+            > SYSTEM_INFO
+        </li>
+    </ul>
+
+    <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+
+    <div class="menu-header">SYSTEM_COMMANDS</div>
+    <ul>
+        <li onclick="history.back()">> BACK_STEP</li>
+        <li onclick="location.reload()">> REFRESH_SYSTEM (F5)</li>
+        <li onclick="window.scrollTo(0,0)">> JUMP_TO_TOP</li>
+        
+        <hr style="border: 0; border-top: 1px dashed #333; margin: 5px 0;">
+        
+        <li onclick="shutdownEffect()" style="color: #ff3333; font-weight: bold;">
+            > EMERGENCY_SHUTDOWN
+        </li>
+    </ul>
+</div>
+
+<script>
+    // 1. Munculin Menu Pas Klik Kanan
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault(); 
+        const menu = document.getElementById('hackerMenu');
+        menu.style.display = 'block';
+        menu.style.left = e.pageX + 'px';
+        menu.style.top = e.pageY + 'px';
+    });
+
+    // 2. Ilangin Menu Pas Klik Kiri
+    document.addEventListener('click', function() {
+        document.getElementById('hackerMenu').style.display = 'none';
+    });
+
+    // 3. Efek Shutdown Keren
+    function shutdownEffect() {
+        const cover = document.createElement('div');
+        cover.style.position = 'fixed';
+        cover.style.top = '0'; cover.style.left = '0';
+        cover.style.width = '100vw'; cover.style.height = '100vh';
+        cover.style.backgroundColor = 'black';
+        cover.style.zIndex = '99999';
+        cover.style.transition = 'height 0.2s ease-in-out';
+        cover.style.height = '0vh'; 
+        document.body.appendChild(cover);
+
+        setTimeout(() => {
+            cover.style.height = '100vh'; 
+            cover.style.borderBottom = '5px solid white';
+        }, 100);
+
+        setTimeout(() => {
+            alert("⚠️ SYSTEM DISCONNECTED.");
+            window.location.href = "about:blank"; 
+        }, 1500);
+    }
+</script>
 </body>
 </html>
