@@ -31,7 +31,7 @@
             color: #e0e0e0;
         }
 
-        /* 2. Wrapper Logo Tengah */
+        /* 2. Wrapper Logo  */
         .center-logo-area {
             display: flex;
             flex-direction: column;
@@ -40,7 +40,7 @@
             margin: 40px 0;
         }
 
-        /* Kartu Logo 3D Utama */
+        /* Kartu Logo  */
         .tilt-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
@@ -62,7 +62,7 @@
             border-radius: 10px;
         }
 
-        /* 3. Grid Filosofi (Teks Penjelas) */
+        /*  Grid Filosofi  */
         .philosophy-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -96,7 +96,7 @@
             line-height: 1.6;
         }
 
-        /* 4. Area Sample Foto Bawah (Galeri) */
+        /*  Area Sample Foto Bawah  */
         .sample-area {
             margin-top: 80px;
             padding-top: 40px;
@@ -219,7 +219,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 <script>
-    // 1. JAM DIGITAL
+    //  JAM DIGITAL
     function updateClock() {
         const now = new Date();
         const time = now.toLocaleTimeString('id-ID', { hour12: false });
@@ -228,7 +228,7 @@
     }
     setInterval(updateClock, 1000); updateClock();
 
-    // 2. EFEK 3D TILT
+    //  EFEK 3D TILT
     VanillaTilt.init(document.querySelector(".tilt-card"), {
         max: 15,
         speed: 400,
@@ -273,7 +273,7 @@
 </div>
 
 <script>
-    // 1. Munculin Menu Pas Klik Kanan
+    //  Munculin Menu 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); 
         const menu = document.getElementById('hackerMenu');
@@ -282,12 +282,12 @@
         menu.style.top = e.pageY + 'px';
     });
 
-    // 2. Ilangin Menu Pas Klik Kiri
+    // Ilangin Menu 
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
 
-    // 3. Efek Shutdown Keren
+    //  Efek Shutdown 
     function shutdownEffect() {
         const cover = document.createElement('div');
         cover.style.position = 'fixed';

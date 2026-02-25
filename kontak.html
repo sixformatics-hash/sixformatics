@@ -85,20 +85,20 @@
         
         const menu = document.getElementById('hackerMenu');
         
-        // Munculin menu persis di ujung mouse
+        // Munculin menu 
         menu.style.display = 'block';
         menu.style.left = e.pageX + 'px';
         menu.style.top = e.pageY + 'px';
     });
 
-    // === KLIK KIRI BUAT NUTUP MENU ===
+    // === KLIK KIRI  ===
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
 
-    // === EFEK SHUTDOWN (LAYAR MATI) ===
+    // ===  SHUTDOWN ===
     function shutdownEffect() {
-        // Bikin layar jadi hitam total
+       
         const cover = document.createElement('div');
         cover.style.position = 'fixed';
         cover.style.top = '0'; cover.style.left = '0';
@@ -107,18 +107,17 @@
         cover.style.zIndex = '99999';
         cover.style.transition = 'height 0.3s ease-in-out';
         
-        // Efek mati kayak TV tabung
-        cover.style.height = '0vh'; // Mulai dari 0
+        cover.style.height = '0vh'; 
         document.body.appendChild(cover);
 
         setTimeout(() => {
-            cover.style.height = '100vh'; // Jadi full layar hitam
-            cover.style.borderBottom = '5px solid white'; // Garis putih TV mati
+            cover.style.height = '100vh'; 
+            cover.style.borderBottom = '5px solid white';
         }, 100);
 
         setTimeout(() => {
             alert("SYSTEM SHUTDOWN...\nConnection Lost.");
-            window.location.href = "about:blank"; // Keluar dari web / ke halaman kosong
+            window.location.href = "about:blank"; 
         }, 1500);
     }
 </script>
@@ -159,7 +158,7 @@
 </div>
 
 <script>
-    // 1. Munculin Menu Pas Klik Kanan
+    //  Munculin Menu 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); 
         const menu = document.getElementById('hackerMenu');
@@ -168,12 +167,12 @@
         menu.style.top = e.pageY + 'px';
     });
 
-    // 2. Ilangin Menu Pas Klik Kiri
+    //  Ilangin Menu
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
 
-    // 3. Efek Shutdown Keren
+    //  Efek Shutdown 
     function shutdownEffect() {
         const cover = document.createElement('div');
         cover.style.position = 'fixed';

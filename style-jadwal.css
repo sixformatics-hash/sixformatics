@@ -18,15 +18,15 @@
     text-shadow: 0 0 15px rgba(79, 220, 255, 0.5);
 }
 
-/* Container Tabel (Supaya bisa di-scroll di HP) */
+/* Container Tabel  */
 .table-container {
     display: flex;
     justify-content: center;
-    overflow-x: auto; /* Scroll samping jika layar kecil */
+    overflow-x: auto; 
     padding: 10px;
 }
 
-/* Desain Tabel Hologram */
+/* Hologram */
 .hologram-table {
     width: 100%;
     max-width: 1100px;
@@ -35,7 +35,7 @@
     backdrop-filter: blur(12px); /* Efek kaca buram */
     border: 1px solid rgba(79, 220, 255, 0.3); /* Garis tepi neon */
     border-radius: 16px;
-    overflow: hidden; /* Supaya sudut tumpul terlihat */
+    overflow: hidden;
     box-shadow: 0 0 30px rgba(31, 182, 255, 0.1);
     color: #d0efff;
 }
@@ -59,13 +59,13 @@
     font-size: 15px;
 }
 
-/* Efek Hover Baris */
+/* Efek Hover */
 .hologram-table tr:hover {
-    background: rgba(79, 220, 255, 0.1); /* Nyala saat mouse lewat */
+    background: rgba(79, 220, 255, 0.1); 
     transition: 0.3s;
 }
 
-/* Badge Hari (Senin, Selasa, dll) */
+/* Badge Hari */
 .hari-badge {
     display: inline-block;
     background: linear-gradient(135deg, #1fb6ff, #4fdcff);
@@ -77,7 +77,7 @@
     box-shadow: 0 0 12px rgba(79, 220, 255, 0.6);
 }
 
-/* --- WIDGET MUSIK CYBERPUNK --- */
+/* --- WIDGET--- */
 .music-widget {
     position: fixed;
     bottom: 30px;
@@ -128,7 +128,7 @@
     line-height: 1.3;
 }
 
-/* Animasi Equalizer (Batang Naik Turun) */
+/*  Equalizer */
 .equalizer {
     display: flex;
     align-items: flex-end;
@@ -141,17 +141,16 @@
     background: #4fdcff;
     border-radius: 2px;
     animation: bounce 1s infinite ease-in-out;
-    animation-play-state: paused; /* Diam kalau lagu mati */
-    height: 4px; /* Tinggi awal */
+    animation-play-state: paused; 
+    height: 4px; 
 }
 
-/* Variasi tinggi animasi */
+
 .bar:nth-child(1) { animation-duration: 0.6s; }
 .bar:nth-child(2) { animation-duration: 0.8s; }
 .bar:nth-child(3) { animation-duration: 0.5s; }
 .bar:nth-child(4) { animation-duration: 0.7s; }
 
-/* Class tambahan via JS saat lagu main */
 .equalizer.playing .bar {
     animation-play-state: running;
 }

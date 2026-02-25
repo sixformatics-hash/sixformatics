@@ -5,7 +5,7 @@
     <title>SixFormatics | Jadwal</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* WRAPPER AGAR KONTEN DI TENGAH */
+        /* WRAPPER  */
         body {
             display: flex;
             flex-direction: column;
@@ -16,7 +16,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Mulai dari atas, bukan tengah vertikal */
+            align-items: flex-start; /* Mulai dari atas */
             padding: 40px 20px;
             width: 100%;
         }
@@ -28,7 +28,7 @@
             border-radius: 20px;
             padding: 40px;
             width: 100%;
-            max-width: 1000px; /* Batas lebar agar tidak terlalu melar */
+            max-width: 1000px; /* Batas lebar  */
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
@@ -255,7 +255,7 @@
 </div>
 
 <script>
-    // 1. Munculin Menu Pas Klik Kanan
+    // Munculin Menu 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); 
         const menu = document.getElementById('hackerMenu');
@@ -264,12 +264,12 @@
         menu.style.top = e.pageY + 'px';
     });
 
-    // 2. Ilangin Menu Pas Klik Kiri
+    //  Ilangin Menu 
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
 
-    // 3. Efek Shutdown Keren
+    //  Efek Shutdown 
     function shutdownEffect() {
         const cover = document.createElement('div');
         cover.style.position = 'fixed';

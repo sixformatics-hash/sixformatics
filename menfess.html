@@ -12,7 +12,7 @@
     
     <style>
         /* =========================================
-           1. STYLE ORIGINAL (TAMPILAN TETAP)
+                 STYLE ORIGINAL TAMPILAN TETAP
            ========================================= */
         .menfess-container {
             max-width: 800px;
@@ -83,7 +83,7 @@
             max-width: 85%;
             align-self: flex-start;
             animation: popIn 0.3s ease;
-            position: relative; /* Penting buat tombol fitur baru */
+            position: relative; 
         }
         @keyframes popIn { from{transform: scale(0.9); opacity:0;} to{transform: scale(1); opacity:1;} }
 
@@ -96,21 +96,21 @@
         .chat-msg { color: #fff; line-height: 1.5; font-size: 1rem; white-space: pre-wrap; }
 
         /* =========================================
-           2. FITUR ADMIN (HIDDEN)
+                           (HIDDEN)
            ========================================= */
         
-        /* Tombol Kamera Kecil & Transparan di pojok bubble */
+        
         .btn-story-admin {
             position: absolute;
             bottom: 5px;
             right: 5px;
-            opacity: 0.1; /* Hampir gak kelihatan (samar) */
+            opacity: 0.1; 
             background: none; border: none;
             font-size: 1.2rem; cursor: pointer;
             transition: 0.2s;
             filter: grayscale(100%);
         }
-        /* Muncul pas mouse nempel di bubble */
+        
         .chat-bubble:hover .btn-story-admin {
             opacity: 1;
             filter: grayscale(0%);
@@ -119,7 +119,7 @@
             transform: scale(1.2);
         }
 
-        /* Template Canvas (DISEMBUNYIKAN TOTAL DARI LAYAR) */
+        /* Template Canvas  */
         #hidden-canvas-area {
             position: fixed; top: -10000px; left: -10000px;
             width: 1080px; height: 1920px;
@@ -188,7 +188,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
         import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-        // === CONFIG API KEY ASLI DARI LU ===
+        // === CONFIG API KEY ===
         const firebaseConfig = {
             apiKey: "AIzaSyBYqI_Me1MbpqsuSYqyDvndE8Ny5kffC4M",
             authDomain: "menfess-633ae.firebaseapp.com",
@@ -201,7 +201,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // 1. Logic Kirim Pesan
+        //  Logic 
         const form = document.getElementById("formMenfess");
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -222,7 +222,7 @@
             }
         });
 
-        // 2. Logic Baca Pesan + Tombol Admin
+        // 2. Logic Baca 
         const listContainer = document.getElementById("listPesan");
         const q = query(collection(db, "menfess"), orderBy("waktu", "desc"));
 
@@ -246,7 +246,7 @@
                     });
                 }
 
-                // Render Bubble (Dengan tombol rahasia)
+                // Render Bubble 
                 const div = document.createElement("div");
                 div.className = "chat-bubble";
                 div.innerHTML = `
@@ -264,15 +264,14 @@
             });
         });
 
-        // Mencegah XSS (Keamanan Dasar)
+        // Mencegah XSS 
         function sanitize(str) {
             if(!str) return "";
             return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
-        // 3. FITUR ADMIN: DOWNLOAD STORY
+        //     ADMIN
         window.buatStory = function(nama, pesan) {
-            // Isi data ke template tersembunyi
             document.getElementById('st-msg-text').innerText = '"' + pesan + '"';
             document.getElementById('st-from-text').innerText = "- " + nama + " -";
 
@@ -282,11 +281,10 @@
             // Proses Screenshot
             const element = document.getElementById("hidden-canvas-area");
             
-            // Trik: Tampilkan sebentar biar bisa difoto, tapi posisinya tetep hidden dari user
             element.style.display = "flex"; 
             
             html2canvas(element, { scale: 1 }).then(canvas => {
-                // Sembunyikan lagi
+                
                 element.style.position = "fixed"; 
                 element.style.top = "-10000px";
 
@@ -353,7 +351,7 @@
 </div>
 
 <script>
-    // 1. Munculin Menu Pas Klik Kanan
+   
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); 
         const menu = document.getElementById('hackerMenu');
@@ -362,12 +360,12 @@
         menu.style.top = e.pageY + 'px';
     });
 
-    // 2. Ilangin Menu Pas Klik Kiri
+   
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
 
-    // 3. Efek Shutdown Keren
+   
     function shutdownEffect() {
         const cover = document.createElement('div');
         cover.style.position = 'fixed';

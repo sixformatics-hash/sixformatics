@@ -97,7 +97,7 @@ p { line-height: 1.8; opacity: 0.9; margin-bottom: 20px; }
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
-    position: relative; /* Penting untuk posisi Badge */
+    position: relative; 
     transition: 0.3s;
     overflow: hidden;
 }
@@ -116,7 +116,7 @@ p { line-height: 1.8; opacity: 0.9; margin-bottom: 20px; }
     margin-bottom: 15px;
 }
 
-/* Desain Badge (Jabatan) */
+/* Desain Badge  */
 .badge {
     position: absolute;
     top: 15px;
@@ -379,7 +379,7 @@ body::after {
 }
 /* === HOLOGRAPHIC IMAGE FILTER === */
 
-/* Target ke foto anggota & foto di menu tentang */
+
 .card-anggota img,
 .avatar-circle,
 .tilt-card img,
@@ -403,16 +403,16 @@ body::after {
     box-shadow: 0 0 25px rgba(0, 198, 255, 0.6);
 }/* === LEVITATION ANIMATION === */
 
-/* Gerakan: Naik Turun Halus */
+
 @keyframes float-space {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-15px); } /* Naik 15px */
     100% { transform: translateY(0px); }
 }
 
-/* Terapkan ke Kartu Menu Utama */
+
 .explore-card {
-    /* Animasi: Nama, Durasi, Tipe, Loop */
+   
     animation: float-space 4s ease-in-out infinite;
 }
 
@@ -428,9 +428,9 @@ body::after {
 
 .explore-card:hover {
     animation-play-state: paused;
-    transform: translateY(-10px); /* Tetap naik dikit */
+    transform: translateY(-10px);
 }
-/* === GLASS SHEEN EFFECT KILATAN CAHAYA === */
+/* === GLASS SHEEN === */
 
 
 
@@ -458,7 +458,7 @@ h1, h2, .jadwal-title, .galeri-title {
         opacity: 0.9;
     }
     52% {
-        /* Kedip Cepat (Glitch Effect dikit) */
+        /* Glitch Effect dikit */
         text-shadow: 0 0 20px rgba(0, 198, 255, 0.9);
         opacity: 0.8;
     }
@@ -470,7 +470,7 @@ h1, h2, .jadwal-title, .galeri-title {
         opacity: 1;
     }
 }
-/* === HUD TARGET LOCK (BINGKAI SIKU) === */
+/* === HUD TARGET LOCK === */
 
 .explore-card, .card-anggota {
     transition: all 0.3s ease;
@@ -512,7 +512,6 @@ a {
     text-decoration: none; 
 }
 
-/* Bikin Garis Laser Tersembunyi */
 a::after {
     content: '';
     position: absolute;
@@ -528,15 +527,15 @@ a::after {
 
 /* Pas Di-Hover, Laser Melebar */
 a:hover::after {
-    width: 100%; /* Melebar jadi 100% */
-}/* === CHROMATIC TEXT HOVER (TEKS BIAS) === */
+    width: 100%; /* Melebar  */
+}/* === CHROMATIC TEXT HOVER ) === */
 
 /* Terapkan ke Judul Besar & Nama Anggota */
 h1, h2, .name-text {
     transition: text-shadow 0.2s ease;
 }
 
-/* Pas Di-Hover: Teks pecah jadi Merah (kiri) dan Biru (kanan) */
+/*  Teks pecah jadi Merah (kiri) dan Biru ) */
 h1:hover, h2:hover, .name-text:hover {
     text-shadow:
         -3px 0 0 rgba(255, 0, 80, 0.7), /* Merah di kiri */
@@ -558,7 +557,7 @@ h1:hover, h2:hover, .name-text:hover {
 
 /* Terapkan ke kartu anggota & menu utama */
 .card-anggota, .explore-card {
-    /* Jalankan animasi 'pulse-glow' selamanya, durasi 3 detik */
+    
     animation: pulse-glow 3s infinite ease-in-out;
 }
 
@@ -571,17 +570,16 @@ h1, h2, h3, .explore-card h3 {
     transition: letter-spacing 0.5s ease; /* Transisi halus */
 }
 
-/* Pas Di-Hover: Spasi huruf melebar */
+/* Pas Di-Hover */
 h1:hover, h2:hover, h3:hover, .explore-card:hover h3 {
     letter-spacing: 4px; /* Jarak antar huruf jadi renggang */
-    cursor: default; /* Kursor tetap panah biasa */
+    cursor: default; /* Kursor tetap */
 }/* === BIOMETRIC SCANNER LINE === */
 
 .card-anggota, .avatar-circle {
     position: relative;
     overflow: hidden;
 }
-
 
 
 /* Animasi Gerak Turun */
@@ -618,7 +616,7 @@ h1:hover, h2:hover, h3:hover, .explore-card:hover h3 {
     background-repeat: repeat;
     background-size: 200px;
     opacity: 0.95;
-}/* === TERMINAL CORNER CUT (BENTUK KARTU MILITER) === */
+}/* === TERMINAL CORNER CUT === */
 
 .explore-card, .card-anggota {
     /* Memotong sudut: kiri atas, kanan atas (dipotong), kanan bawah, kiri bawah (dipotong) */
@@ -655,7 +653,6 @@ h1:hover, h2:hover, h3:hover, .explore-card:hover h3 {
     border-radius: 2px;
 }
 
-/* Cahaya yang lari di dalam bar */
 .status-bar::after {
     content: "";
     position: absolute;
@@ -681,7 +678,7 @@ body::after {
     height: 100%;
     /* Gradasi dari transparan di tengah ke hitam di pojok */
     background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
-    pointer-events: none; /* Biar tetep bisa ngeklik tombol di bawahnya */
+    pointer-events: none; 
     z-index: 9999;
 }/* === FLOATING DIGITAL DUST === */
 
@@ -691,7 +688,7 @@ html::before {
     width: 2px;
     height: 2px;
     background: transparent;
-    /* Bikin banyak titik putih pake box-shadow */
+    /*  titik putih pake box-shadow */
     box-shadow:
         10vw 20vh 1px #fff, 35vw 45vh 1px #fff, 80vw 10vh 1px #fff,
         20vw 80vh 1px #fff, 60vw 30vh 1px #fff, 90vw 90vh 1px #fff,
@@ -812,16 +809,16 @@ input:focus, textarea:focus {
 [class*="schedule"] li:hover,
 .jadwal-item:hover,
 .schedule-row:hover {
-    /* 1. Invert warna & geser hue ke arah Biru/Neon */
+    /*  Invert warna & geser hue ke arah Biru/Neon */
     filter: invert(1) hue-rotate(180deg) brightness(1.1) contrast(1.2) !important;
 
-    /* 2.  bayangan tebal  */
+    /*   bayangan tebal  */
     box-shadow: 0 0 40px var(--primary-blue), 0 0 80px rgba(0, 198, 255, 0.2) !important;
 
-    /* 3. Efek angkat  */
+    /*  Efek angkat  */
     transform: translateY(-5px) scale(1.02) !important;
 
-    /* 4. Paksa z-index biar di atas elemen lain */
+    /*  Paksa z-index biar di atas elemen lain */
     z-index: 9999 !important;
 }
 
@@ -839,16 +836,16 @@ input:focus, textarea:focus {
         margin: 0 auto !important;
     }
 
-    /*  Optimasi Kartu Jadwal & Anggota di HP */
+    /*  Optimasi Kartu Jadwal & Anggota */
     .jadwal-container li,
     .jadwal-container div,
     .card-anggota,
     .explore-card {
-        width: 100% !important; /* Biar nggak kepotong samping */
+        width: 100% !important; 
         margin-left: 0 !important;
         margin-right: 0 !important;
         padding: 15px !important;
-        transform: none !important; /* Matiin transform default biar nggak pusing di layar kecil */
+        transform: none !important; 
     }
 
     /*  Penyesuaian Efek Hover untuk Layar Sentuh */
@@ -872,7 +869,6 @@ input:focus, textarea:focus {
         margin-bottom: 5px;
     }
 
-    /*  Matiin Efek Berat  */
     html::after {
         opacity: 0.02 !important; 
     }

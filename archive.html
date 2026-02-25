@@ -106,7 +106,7 @@
 </div>
 
 <script>
-    // 1. Munculin Menu Pas Klik Kanan
+    //  Munculin Menu 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); 
         const menu = document.getElementById('hackerMenu');
@@ -115,12 +115,12 @@
         menu.style.top = e.pageY + 'px';
     });
 
-    // 2. Ilangin Menu Pas Klik Kiri
+    //  Ilangin Menu 
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
 
-    // 3. Efek Shutdown Keren
+    //  Efek Shutdown 
     function shutdownEffect() {
         const cover = document.createElement('div');
         cover.style.position = 'fixed';

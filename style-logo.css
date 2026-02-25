@@ -1,6 +1,5 @@
-/* FILE: style-logo.css */
+/*  style-logo.css */
 
-/* --- BAGIAN LOGO UTAMA --- */
 .tentang-logo {
     display: flex;
     flex-direction: column;
@@ -49,7 +48,7 @@
     text-align: center;
 }
 
-/* --- BAGIAN GALERI BARU (UPDATED) --- */
+/* --- UPDATED --- */
 .galeri-title {
     margin-top: 60px;
     color: #4fdcff;
@@ -97,7 +96,7 @@
 .galeri-card img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Gambar pas tanpa terpotong */
+    object-fit: contain; 
     transform: translateZ(30px); /* Efek pop-out */
     filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
 }

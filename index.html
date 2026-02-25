@@ -5,7 +5,7 @@
     <title>sixformatics | Home</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* TAMBAHAN CSS KHUSUS EXPLORE SYSTEM (MODEL KARTU) */
+        /* TEXPLORE SYSTEM  */
         .explore-grid {
             display: flex;
             gap: 20px;
@@ -211,7 +211,7 @@
 </script>
 
 <style>
-    /* CSS kecil buat jejaknya */
+    
     .circle-trail {
         position: absolute;
         width: 10px;
@@ -248,7 +248,7 @@
         circle.style.height = "0px";
         circle.style.opacity = 0;
 
-        // Hapus elemen setelah animasi selesai biar ga berat
+        // Hapus elemen
         setTimeout(function() {
             circle.remove();
         }, 500);
@@ -280,22 +280,20 @@
 </div>
 
 <script>
-    // Munculin notifikasi pas web dibuka
+    // Munculin notifikasi
     window.onload = function() {
         setTimeout(() => {
             let toast = document.getElementById('cyber-toast');
             toast.style.right = "20px"; // Geser masuk
 
-            // Suara "Ting" (Opsional, pake suara browser default)
             let audio = new Audio('https://www.soundjay.com/buttons/beep-01a.mp3');
             audio.volume = 0.2;
             audio.play().catch(e => console.log("Audio butuh interaksi user dulu"));
 
-            // Hilang lagi setelah 4 detik
             setTimeout(() => {
                 toast.style.right = "-300px";
             }, 4000);
-        }, 1000); // Delay 1 detik setelah loading
+        }, 1000); 
     }
 </script>
 
@@ -324,12 +322,11 @@
 </div>
 
 <script>
-    // Muncul setelah 3 detik (biar gak barengan sama Boot Screen)
     setTimeout(() => {
         const panel = document.getElementById('recon-panel');
         panel.style.display = 'block';
 
-        // 1. Cek OS
+        // Cek OS
         let os = "Unknown OS";
         if (navigator.userAgent.indexOf("Win") != -1) os = "Windows NT System";
         if (navigator.userAgent.indexOf("Mac") != -1) os = "Macintosh System";
@@ -337,12 +334,12 @@
         if (navigator.userAgent.indexOf("Android") != -1) os = "Android System";
         if (navigator.userAgent.indexOf("iPhone") != -1) os = "iOS Device";
 
-        // 2. Cek Browser
+        // Cek Browser
         let browser = "Unknown Agent";
         if(navigator.userAgent.indexOf("Chrome") != -1 ) browser = "Chrome Browser";
         if(navigator.userAgent.indexOf("Firefox") != -1 ) browser = "Firefox Developer";
 
-        // 3. Cek Resolusi
+        //  Cek Resolusi
         let res = window.screen.width + "x" + window.screen.height;
 
         // Tampilkan
@@ -388,7 +385,7 @@
 </div>
 
 <script>
-    // 1. Munculin Menu Pas Klik Kanan
+    //  Munculin Menu 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); 
         const menu = document.getElementById('hackerMenu');
@@ -397,12 +394,12 @@
         menu.style.top = e.pageY + 'px';
     });
 
-    // 2. Ilangin Menu Pas Klik Kiri
+    //  Ilangin Menu 
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
 
-    // 3. Efek Shutdown Keren
+    // 3. Efek Shutdown 
     function shutdownEffect() {
         const cover = document.createElement('div');
         cover.style.position = 'fixed';

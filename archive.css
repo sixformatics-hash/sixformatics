@@ -44,7 +44,6 @@ body {
 
 .photo-info { font-family: 'JetBrains Mono'; font-size: 9px; color: var(--primary-blue); margin-top: 12px; }
 
-/* SLOT KOSONG */
 .empty-slot { border: 1px dashed rgba(0, 198, 255, 0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0.5; }
 .empty-icon { font-size: 30px; margin-bottom: 10px; }
 
@@ -91,9 +90,9 @@ body {
 .copyright { font-family: 'JetBrains Mono'; font-size: 10px; color: var(--primary-blue); opacity: 0.6; letter-spacing: 2px; }
 
 .close-modal { position: absolute; top: -50px; right: 0; color: white; font-size: 40px; cursor: pointer; }
-/* --- BUMBU TERMINAL DATA (PURE CSS) --- */
+/* --- BUMBU TERMINAL DATA  --- */
 
-/* Bikin kontainer caption jadi kaya terminal */
+
 #caption {
     display: block;
     background: rgba(0, 20, 40, 0.9);
@@ -108,7 +107,7 @@ body {
     text-transform: uppercase;
 }
 
-/* Animasi Teks Mengetik di awal caption */
+/* Animasi Teks  */
 #caption::before {
     content: "DECRYPTED_DATA: ";
     color: var(--primary-blue);
@@ -117,7 +116,7 @@ body {
     margin-bottom: 5px;
 }
 
-/* Loading Bar Otomatis di bawah Caption */
+/* Loading Bar Otomatis */
 #caption::after {
     content: "";
     display: block;
@@ -129,7 +128,7 @@ body {
     animation: barFill 1.5s ease-out forwards;
 }
 
-/* Tambahan Log Sistem di bawah loading bar */
+/* Tambahan Log  */
 .data-info::after {
     content: "> TRACING_SOURCE... DONE \A > BYPASSING_ENCRYPTION... 100% \A > ACCESS_GRANTED";
     display: block;
@@ -144,7 +143,7 @@ body {
     padding-left: 20px;
 }
 
-/* Animasi Scan Line biar makin tajem */
+/* Animasi  */
 .scan-line {
     height: 3px;
     background: var(--primary-blue);
@@ -153,7 +152,7 @@ body {
     animation: scanMove 2s linear infinite;
 }
 
-/* KEYFRAMES UNTUK BUMBU CSS */
+/* KEYFRAMES */
 @keyframes barFill {
     0% { width: 0%; }
     100% { width: 100%; }
@@ -173,17 +172,17 @@ body {
     from { opacity: 1; }
     to { opacity: 0.5; }
 }
-/* --- BUMBU ELEGAN UNTUK CLASSIFIED_ARCHIVE --- */
+
 
 .hari-title span {
     color: var(--neon-yellow);
     text-shadow: 0 0 10px rgba(255, 238, 0, 0.6);
-    letter-spacing: 7px; /* Kasih jarak antar huruf biar tegas */
+    letter-spacing: 7px; 
     position: relative;
-    animation: simple-flicker 3s infinite; /* Efek kedip halus */
+    animation: simple-flicker 3s infinite; 
 }
 
-/* Garis dekorasi di bawah judul biar lebih rapi */
+
 .hari-title::after {
     content: "";
     display: block;
@@ -195,7 +194,7 @@ body {
     opacity: 0.5;
 }
 
-/* Animasi kedip lampu neon (tidak brutal, cuma halus) */
+
 @keyframes simple-flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
         opacity: 1;
@@ -207,7 +206,7 @@ body {
     }
 }
 
-/* Efek scan line tipis lewat di judul (opsional, sangat halus) */
+
 .hari-title span::before {
     content: "";
     position: absolute;
@@ -232,7 +231,7 @@ body {
 }
 /* === MENFESS TERMINAL STYLE === */
 
-/* Inputan ala Hacker */
+/* Inputan  */
 .terminal-input {
     width: 100%;
     height: 120px;
@@ -243,7 +242,7 @@ body {
     padding: 15px;
     font-size: 14px;
     outline: none;
-    resize: none; /* Gabisa ditarik */
+    resize: none;
     border-radius: 5px;
     transition: 0.3s;
 }

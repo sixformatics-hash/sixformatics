@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* === WRAPPER AGAR KONTEN DI TENGAH (FIX POSISI) === */
+        /* === WRAPPER  === */
         body {
             display: flex;
             flex-direction: column;
@@ -33,7 +33,7 @@
             text-align: center;
         }
 
-        /* === SECTION LEADERS (KOMTING & WAKIL) === */
+        /* === SECTION LEADERS  === */
         .leaders-area {
             display: flex;
             justify-content: center;
@@ -58,7 +58,7 @@
             background: rgba(0, 198, 255, 0.2);
         }
 
-        /* === SECTION ANGGOTA (GRID) === */
+        /* === SECTION ANGGOTA  === */
         .siswa-area {
             border-top: 1px solid rgba(255,255,255,0.15);
             padding-top: 40px;
@@ -101,7 +101,7 @@
             font-family: 'Orbitron', sans-serif;
         }
 
-        /* Avatar Inisial Bulat */
+        /* Avatar Inisial  */
         .avatar-circle {
             width: 60px;
             height: 60px;
@@ -118,12 +118,12 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Warna khusus untuk anggota biasa */
+        /* Warna khusus  */
         .card-anggota .avatar-circle {
             background: linear-gradient(135deg, #444, #222);
             border-color: #555;
         }
-        /* Hover efek pada avatar anggota */
+        /* Hover efek */
         .card-anggota:hover .avatar-circle {
              background: linear-gradient(135deg, #ffee00, #ffaa00);
              color: #000;
@@ -439,14 +439,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
 
 <script>
-    // Cek lebar layar. Jika di atas 768px (Laptop/PC), baru aktifkan efek 3D Tilt
+    
     if (window.matchMedia("(min-width: 769px)").matches) {
         VanillaTilt.init(document.querySelectorAll(".card-anggota"), {
             max: 15,          /* Derajat kemiringan */
             speed: 400,       /* Kecepatan gerak */
             glare: true,      /* Efek kilauan cahaya */
             "max-glare": 0.3, /* Terang kilauan */
-            scale: 1.05,      /* Zoom dikit */
+            scale: 1.05,      /* Zoom  */
             perspective: 1000 /* Jarak pandang 3D */
         });
     }
@@ -508,7 +508,7 @@ Selamanya... Sampai kita tua, sampai jadi debu."
 </div>
 
 <script>
-    //  1. Munculin Menu Pas Klik Kanan
+    //  Menu 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault(); 
         const menu = document.getElementById('hackerMenu');
@@ -517,7 +517,7 @@ Selamanya... Sampai kita tua, sampai jadi debu."
         menu.style.top = e.pageY + 'px';
     });
 
-    // 2. Ilangin Menu Pas Klik Kiri
+    //  Ilangin Menu
     document.addEventListener('click', function() {
         document.getElementById('hackerMenu').style.display = 'none';
     });
